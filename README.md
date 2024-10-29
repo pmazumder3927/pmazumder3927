@@ -12,4 +12,6 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+more raccoon steganography coming soon
+![raccoon](https://github.com/pmazumder3927/pmazumder3927/blob/main/raccoon.png)
 ![snake graph](https://github.com/pmazumder3927/pmazumder3927/blob/output/github-contribution-grid-snake.gif)
