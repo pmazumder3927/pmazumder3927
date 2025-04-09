@@ -1,0 +1,108 @@
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.98",
+  "elapsed_seconds"    : 10.2956590652466,
+  "n_files"            : 1364,
+  "n_lines"            : 5098283,
+  "files_per_second"   : 132.483019431387,
+  "lines_per_second"   : 495187.62885316},
+"Unity-Prefab" :{
+  "nFiles": 854,
+  "blank": 8,
+  "comment": 0,
+  "code": 5014244},
+"C#" :{
+  "nFiles": 284,
+  "blank": 11203,
+  "comment": 8541,
+  "code": 41388},
+"HLSL" :{
+  "nFiles": 66,
+  "blank": 936,
+  "comment": 553,
+  "code": 4908},
+"Java" :{
+  "nFiles": 49,
+  "blank": 825,
+  "comment": 1218,
+  "code": 4120},
+"Jupyter Notebook" :{
+  "nFiles": 10,
+  "blank": 0,
+  "comment": 3729,
+  "code": 1511},
+"XML" :{
+  "nFiles": 28,
+  "blank": 0,
+  "comment": 0,
+  "code": 1395},
+"TeX" :{
+  "nFiles": 1,
+  "blank": 177,
+  "comment": 49,
+  "code": 1007},
+"MSBuild script" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 7,
+  "code": 668},
+"Text" :{
+  "nFiles": 40,
+  "blank": 107,
+  "comment": 0,
+  "code": 460},
+"DOS Batch" :{
+  "nFiles": 5,
+  "blank": 71,
+  "comment": 6,
+  "code": 203},
+"YAML" :{
+  "nFiles": 6,
+  "blank": 43,
+  "comment": 24,
+  "code": 186},
+"Bourne Shell" :{
+  "nFiles": 1,
+  "blank": 21,
+  "comment": 22,
+  "code": 129},
+"C/C++ Header" :{
+  "nFiles": 8,
+  "blank": 29,
+  "comment": 204,
+  "code": 106},
+"Gradle" :{
+  "nFiles": 4,
+  "blank": 12,
+  "comment": 28,
+  "code": 81},
+"Visual Studio Solution" :{
+  "nFiles": 1,
+  "blank": 1,
+  "comment": 1,
+  "code": 18},
+"Properties" :{
+  "nFiles": 3,
+  "blank": 0,
+  "comment": 2,
+  "code": 9},
+"Ant" :{
+  "nFiles": 1,
+  "blank": 9,
+  "comment": 14,
+  "code": 7},
+"INI" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 2},
+"JavaScript" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 1},
+"SUM": {
+  "blank": 13442,
+  "comment": 14398,
+  "code": 5070443,
+  "nFiles": 1364} }
