@@ -12,6 +12,9 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+ <!-- LANGUAGES BREAKDOWN (STATIC EXAMPLE) START -->
+
+ <!-- LANGUAGES BREAKDOWN (STATIC EXAMPLE) END -->
 more raccoon steganography coming soon
 
 ![raccoon](https://github.com/pmazumder3927/pmazumder3927/blob/main/raccoon.png)
