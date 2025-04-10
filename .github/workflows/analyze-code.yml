@@ -80,18 +80,16 @@ jobs:
           FORMATTED_OTHER=$(format_number $OTHER_LINES)
 
           CODE_BLOCK="\`\`\`
-          [ LANGUAGES BREAKDOWN ]
-
-          Java                 --> $FORMATTED_JAVA lines
-          Python (incl. Notebooks) --> $FORMATTED_PYTHON lines
+          [ TOTAL LINES OF CODE: $FORMATTED_TOTAL ]
+          
+          Java                --> $FORMATTED_JAVA lines
+          Python              --> $FORMATTED_PYTHON lines
           JavaScript          --> $FORMATTED_JS lines
           TypeScript          --> $FORMATTED_TS lines
           JSX                 --> $FORMATTED_JSX lines
           PHP                 --> $FORMATTED_PHP lines
           C#                  --> $FORMATTED_CSHARP lines
           Other               --> $FORMATTED_OTHER lines
-
-          [ TOTAL LINES OF CODE: $FORMATTED_TOTAL ]
           \`\`\`"
 
           # Update README
