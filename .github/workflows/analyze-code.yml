@@ -81,6 +81,7 @@ jobs:
           FORMATTED_PHP=$(format_number $PHP_LINES)
           FORMATTED_CSHARP=$(format_number $CSHARP_LINES)
           FORMATTED_OTHER=$(format_number $OTHER_LINES)
+          # Write language summary to README
 
           CODE_BLOCK="\`\`\`
           [ LANGUAGES BREAKDOWN ]
@@ -103,8 +104,14 @@ jobs:
               //!d
               /<!-- LANGUAGES BREAKDOWN START -->/r temp_block.txt
           }' README.md
-
           rm temp_block.txt
+          
+          # Dump full cloc-output.json to cloc-details.md
+          echo "# Detailed cloc Output" > cloc-details.md
+          echo -e "\n<details>\n<summary><strong>Full cloc-output.json</strong> (click to expand)</summary>\n" >> cloc-details.md
+          echo -e '\n```json' >> cloc-details.md
+          jq . output/cloc-output.json >> cloc-details.md  # Pretty-print JSON
+          echo -e '```\n</details>' >> cloc-details.md
 
           git add output/cloc-output.json README.md
           git commit -m "chore: update README and cloc-output.json with latest code stats" || echo "No changes to commit"
