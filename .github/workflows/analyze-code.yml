@@ -82,10 +82,11 @@ jobs:
             printf "%'d\n" "$1"
           }
 
-          draw_bar() {
-            local count=$1 max=$2
+          draw_log_bar() {
+            local count=$1
+            local max=$2
             local full=20
-            local ratio=$(awk "BEGIN { printf \"%.4f\", $count/$max }")
+            local ratio=$(awk -v c=$count -v m=$max 'BEGIN { if (c == 0) print 0; else print log(1 + c)/log(1 + m) }')
             local filled=$(awk -v f=$full -v r=$ratio 'BEGIN { printf "%d", f * r }')
             local empty=$((full - filled))
             local bar=""
@@ -103,16 +104,11 @@ jobs:
           echo "" >> temp_block.txt
 
           for LANG in "${!EMOJIS[@]}"; do
-            if [[ "$LANG" == "Python" ]]; then
-              PUB=$(jq '."Python".code // 0 + ."Jupyter Notebook".code // 0' output/cloc-public.json)
-              PRI=$(jq '."Python".code // 0 + ."Jupyter Notebook".code // 0' output/cloc-private.json)
-            else
-              PUB=$(jq --arg LANG "$LANG" '.[$LANG].code // 0' output/cloc-public.json)
-              PRI=$(jq --arg LANG "$LANG" '.[$LANG].code // 0' output/cloc-private.json)
-            fi
+            PUB=$(jq --arg LANG "$LANG" 'if $LANG == "Python" then (.Python.code // 0 + ."Jupyter Notebook".code // 0) else .[$LANG].code // 0 end' output/cloc-public.json)
+            PRI=$(jq --arg LANG "$LANG" 'if $LANG == "Python" then (.Python.code // 0 + ."Jupyter Notebook".code // 0) else .[$LANG].code // 0 end' output/cloc-private.json)
             TOTAL=$((PUB + PRI))
             [[ $TOTAL -eq 0 ]] && continue
-            BAR=$(draw_bar $TOTAL $TOTAL_LINES)
+            BAR=$(draw_log_bar $TOTAL $TOTAL_LINES)
             LANG_LOWER=$(echo "$LANG" | tr '[:upper:]' '[:lower:]')
             EMOJI="${EMOJIS[$LANG]}"
             PADDED_LANG=$(printf '%-13s' "$LANG_LOWER")
