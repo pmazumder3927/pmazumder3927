@@ -23,21 +23,20 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-        USERNAME="pmazumder3927"
-        
-        get_repos() {
-          local visibility=$1
-          page=1
-          while :; do
-            result=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/user/repos?visibility=$visibility&per_page=100&page=$page")
-            names=$(echo "$result" | jq -r '.[] | select(.fork == false) | .full_name')
-            [ -z "$names" ] && break
-            echo "$names"
-            ((page++))
-          done
-        }
-        
-        REPOS=$( (get_repos private && get_repos public) | sort -u )
+          USERNAME="pmazumder3927"
+          get_repos() {
+            local visibility=$1
+            page=1
+            while :; do
+              result=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/user/repos?visibility=$visibility&per_page=100&page=$page")
+              names=$(echo "$result" | jq -r '.[] | select(.fork == false) | .full_name')
+              [ -z "$names" ] && break
+              echo "$names"
+              ((page++))
+            done
+          }
+          
+          REPOS=$( (get_repos private && get_repos public) | sort -u )
           mkdir -p private-repos
           cd private-repos
 
