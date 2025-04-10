@@ -14,18 +14,16 @@ Here are some ideas to get you started:
 -->
  <!-- LANGUAGES BREAKDOWN START -->
 ```
-[ LANGUAGES BREAKDOWN ]
+[ TOTAL LINES OF CODE: 130,269 ]
 
-Java                 --> 61,544 lines
-Python (incl. Notebooks) --> 4,729 lines
+Java                --> 61,544 lines
+Python              --> 4,729 lines
 JavaScript          --> 9,652 lines
 TypeScript          --> 28,932 lines
 JSX                 --> 0 lines
 PHP                 --> 7,439 lines
 C#                  --> 0 lines
 Other               --> 17,973 lines
-
-[ TOTAL LINES OF CODE: 130,269 ]
 ```
  <!-- LANGUAGES BREAKDOWN END -->
 more raccoon steganography coming soon
