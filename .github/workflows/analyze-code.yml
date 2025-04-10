@@ -13,44 +13,38 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Install required dependencies: jq (JSON processor), cloc (count lines of code), and locale settings
       - name: Install Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y jq cloc locales
           sudo locale-gen en_US.UTF-8
 
-      # Fetch public repositories (excluding forks) and clone only the default branch
       - name: Fetch and Clone Repositories
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          # Set your GitHub username
           USERNAME="<your-github-username>"
 
-          # Get a list of public repositories that are not forks
+          # Fetch private (and public) repos the user owns that aren't forks
           REPOS=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/user/repos?per_page=100&visibility=private" | jq -r '.[] | select(.fork == false) | .full_name')
 
-          mkdir -p public-repos
-          cd public-repos
+          mkdir -p private-repos
+          cd private-repos
 
           for REPO in $REPOS; do
             REPO_URL="https://github.com/$REPO.git"
-            AUTHENTICATED_REPO=$(echo "$REPO_URL" | sed "s/https:\/\//https:\/\/$GH_PAT@/g")
-            
-            # Determine the default branch dynamically and clone only that branch
+            AUTHENTICATED_REPO=$(echo "$REPO_URL" | sed "s|https://|https://$GH_PAT@|g")
+
             DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/$REPO" | jq -r '.default_branch')
 
-            echo "Cloning $REPO (default branch: $DEFAULT_BRANCH)..."
+            echo "Cloning $REPO (branch: $DEFAULT_BRANCH)..."
             git clone --branch "$DEFAULT_BRANCH" --single-branch "$AUTHENTICATED_REPO" "$(basename $REPO)-$DEFAULT_BRANCH" || echo "Failed to clone $REPO."
           done
 
-          # Run cloc to analyze lines of code, excluding non-source code files
-          echo "Calculating lines of code..."
+          echo "Running cloc..."
           mkdir -p ../output
-          cloc . --exclude-ext=json,html,css,svg,md,py,ps1,scss --json > ../output/cloc-output.json
+          cloc . --exclude-ext=json,html,css,svg,md,ps1,scss --json > ../output/cloc-output.json
 
-      # Commit and push the updated cloc-output.json and README.md to the current branch
       - name: Commit and Push Output
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
@@ -58,46 +52,52 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Format and update README
-          TOTAL_LINES=$(jq '.SUM.code // 0' output/cloc-output.json)
-          JS_LINES=$(jq '.JavaScript.code // 0' output/cloc-output.json)
-          TS_LINES=$(jq '.TypeScript.code // 0' output/cloc-output.json)
-          JSX_LINES=$(jq '.JSX.code // 0' output/cloc-output.json)
-          CSHARP_LINES=$(jq '."C#".code // 0' output/cloc-output.json)
-          VUE_LINES=$(jq '."Vuejs Component".code // 0' output/cloc-output.json)
-          PHP_LINES=$(jq '.PHP.code // 0' output/cloc-output.json)
-          OTHER_LINES=$((TOTAL_LINES - JS_LINES - TS_LINES - JSX_LINES - PHP_LINES - CSHARP_LINES - VUE_LINES))
+          # Read cloc output
+          CLOC_JSON="output/cloc-output.json"
+          TOTAL_LINES=$(jq '.SUM.code // 0' "$CLOC_JSON")
+          JAVA_LINES=$(jq '.Java.code // 0' "$CLOC_JSON")
+          PYTHON_LINES=$(jq '.Python.code // 0' "$CLOC_JSON")
+          JS_LINES=$(jq '.JavaScript.code // 0' "$CLOC_JSON")
+          TS_LINES=$(jq '.TypeScript.code // 0' "$CLOC_JSON")
+          JSX_LINES=$(jq '.JSX.code // 0' "$CLOC_JSON")
+          VUE_LINES=$(jq '."Vuejs Component".code // 0' "$CLOC_JSON")
+          PHP_LINES=$(jq '.PHP.code // 0' "$CLOC_JSON")
+          CSHARP_LINES=$(jq '."C#".code // 0' "$CLOC_JSON")
 
-          # Function to format numbers with commas (ensuring proper locale settings)
+          OTHER_LINES=$((TOTAL_LINES - JAVA_LINES - PYTHON_LINES - JS_LINES - TS_LINES - JSX_LINES - PHP_LINES - CSHARP_LINES - VUE_LINES))
+
           format_number() {
             export LC_ALL="en_US.UTF-8"
             printf "%'d\n" $1
           }
 
           FORMATTED_TOTAL=$(format_number $TOTAL_LINES)
+          FORMATTED_JAVA=$(format_number $JAVA_LINES)
+          FORMATTED_PYTHON=$(format_number $PYTHON_LINES)
           FORMATTED_JS=$(format_number $JS_LINES)
           FORMATTED_TS=$(format_number $TS_LINES)
           FORMATTED_JSX=$(format_number $JSX_LINES)
-          FORMATTED_CSHARP=$(format_number $CSHARP_LINES)
           FORMATTED_VUE=$(format_number $VUE_LINES)
           FORMATTED_PHP=$(format_number $PHP_LINES)
+          FORMATTED_CSHARP=$(format_number $CSHARP_LINES)
           FORMATTED_OTHER=$(format_number $OTHER_LINES)
 
           CODE_BLOCK="\`\`\`
           [ LANGUAGES BREAKDOWN ]
 
-          JavaScript   --> $FORMATTED_JS lines
-          TypeScript   --> $FORMATTED_TS lines
-          JSX          --> $FORMATTED_JSX lines
-          Vue.js       --> $FORMATTED_VUE lines
-          PHP          --> $FORMATTED_PHP lines
-          C#           --> $FORMATTED_CSHARP lines
-          Other        --> $FORMATTED_OTHER lines
+          Java        --> $FORMATTED_JAVA lines
+          Python      --> $FORMATTED_PYTHON lines
+          JavaScript  --> $FORMATTED_JS lines
+          TypeScript  --> $FORMATTED_TS lines
+          JSX         --> $FORMATTED_JSX lines
+          Vue.js      --> $FORMATTED_VUE lines
+          PHP         --> $FORMATTED_PHP lines
+          C#          --> $FORMATTED_CSHARP lines
+          Other       --> $FORMATTED_OTHER lines
 
           [ TOTAL LINES OF CODE: $FORMATTED_TOTAL ]
           \`\`\`"
 
-          # Update README.md by replacing the section between predefined comment markers
           echo "$CODE_BLOCK" > temp_block.txt
           sed -i '/<!-- LANGUAGES BREAKDOWN START -->/,/<!-- LANGUAGES BREAKDOWN END -->/{
               //!d
