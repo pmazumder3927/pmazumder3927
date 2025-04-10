@@ -29,7 +29,7 @@ jobs:
           USERNAME="<your-github-username>"
 
           # Get a list of public repositories that are not forks
-          REPOS=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/user/repos?per_page=100" | jq -r '.[] | select(.fork == false) | .full_name') || echo "Error fetching repositories"
+          REPOS=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/user/repos?per_page=100&visibility=private" | jq -r '.[] | select(.fork == false) | .full_name')
 
           mkdir -p public-repos
           cd public-repos
