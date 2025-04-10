@@ -84,15 +84,17 @@ jobs:
 
           draw_bar() {
             local count=$1 max=$2
-            local ratio=$(awk "BEGIN { printf \"%.2f\", $count/$max }")
-            local level=$(awk "BEGIN { printf \"%d\", $ratio * 8 }")
-            local bars=(▁ ▂ ▃ ▄ ▅ ▆ ▇ █)
+            local full=20
+            local ratio=$(awk "BEGIN { printf \"%.4f\", $count/$max }")
+            local filled=$(awk -v f=$full -v r=$ratio 'BEGIN { printf "%d", f * r }')
+            local empty=$((full - filled))
             local bar=""
-            for ((i = 0; i < level; i++)); do bar+=${bars[7]}; done
+            for ((i = 0; i < filled; i++)); do bar+="█"; done
+            for ((i = 0; i < empty; i++)); do bar+="·"; done
             echo "$bar"
           }
 
-          declare -A EMOJIS=( ["Java"]="☕" ["Python"]="🐍" ["Jupyter Notebook"]="📓" ["JavaScript"]="💛" \
+          declare -A EMOJIS=( ["Java"]="☕" ["Python"]="🐍" ["JavaScript"]="💛" \
                               ["TypeScript"]="🌀" ["JSX"]="🎨" ["PHP"]="🐘" ["C#"]="🔧" ["Dart"]="🎯" )
 
           echo "<pre><code style=\"font-family: monospace; font-size: 14px;\">" > temp_block.txt
@@ -101,15 +103,20 @@ jobs:
           echo "" >> temp_block.txt
 
           for LANG in "${!EMOJIS[@]}"; do
-            PUB=$(jq --arg LANG "$LANG" '.[$LANG].code // 0' output/cloc-public.json)
-            PRI=$(jq --arg LANG "$LANG" '.[$LANG].code // 0' output/cloc-private.json)
+            if [[ "$LANG" == "Python" ]]; then
+              PUB=$(jq '."Python".code // 0 + ."Jupyter Notebook".code // 0' output/cloc-public.json)
+              PRI=$(jq '."Python".code // 0 + ."Jupyter Notebook".code // 0' output/cloc-private.json)
+            else
+              PUB=$(jq --arg LANG "$LANG" '.[$LANG].code // 0' output/cloc-public.json)
+              PRI=$(jq --arg LANG "$LANG" '.[$LANG].code // 0' output/cloc-private.json)
+            fi
             TOTAL=$((PUB + PRI))
             [[ $TOTAL -eq 0 ]] && continue
             BAR=$(draw_bar $TOTAL $TOTAL_LINES)
             LANG_LOWER=$(echo "$LANG" | tr '[:upper:]' '[:lower:]')
             EMOJI="${EMOJIS[$LANG]}"
             PADDED_LANG=$(printf '%-13s' "$LANG_LOWER")
-            PADDED_BAR=$(printf '%-14s' "$BAR")
+            PADDED_BAR=$(printf '%-20s' "$BAR")
             PADDED_TOTAL=$(format_number $TOTAL)
             echo "$EMOJI $PADDED_LANG $PADDED_BAR $PADDED_TOTAL" >> temp_block.txt
           done
