@@ -51,7 +51,10 @@ jobs:
 
           echo "Running cloc..."
           mkdir -p ../output
-          cloc . --exclude-ext=json,html,css,svg,md,ps1,scss,csv --json > ../output/cloc-output.json
+          cloc . \
+            --exclude-ext=json,html,css,svg,md,ps1,scss,csv,prefab,unity,asset,meta \
+            --exclude-dir=Library,Temp,obj,Build,build,.git \
+            --json > ../output/cloc-output.json
 
       - name: Commit and Push Output
         env:
