@@ -17,14 +17,13 @@ Here are some ideas to get you started:
 [ LANGUAGES BREAKDOWN ]
 
 Java                 --> 61,544 lines
-Python (incl. Notebooks) --> 1,587 lines
+Python (incl. Notebooks) --> 4,729 lines
 JavaScript          --> 9,652 lines
 TypeScript          --> 28,932 lines
 JSX                 --> 0 lines
-Vue.js              --> 0 lines
 PHP                 --> 7,439 lines
 C#                  --> 0 lines
-Other               --> 21,115 lines
+Other               --> 17,973 lines
 
 [ TOTAL LINES OF CODE: 130,269 ]
 ```
