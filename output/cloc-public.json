@@ -1,0 +1,128 @@
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.98",
+  "elapsed_seconds"    : 4.44747710227966,
+  "n_files"            : 2340,
+  "n_lines"            : 366301,
+  "files_per_second"   : 526.140988741814,
+  "lines_per_second"   : 82361.525776545},
+"JavaScript" :{
+  "nFiles": 63,
+  "blank": 3909,
+  "comment": 3079,
+  "code": 97782},
+"Java" :{
+  "nFiles": 1184,
+  "blank": 19867,
+  "comment": 25086,
+  "code": 91313},
+"Unity-Prefab" :{
+  "nFiles": 525,
+  "blank": 0,
+  "comment": 0,
+  "code": 79105},
+"C#" :{
+  "nFiles": 135,
+  "blank": 1772,
+  "comment": 538,
+  "code": 9156},
+"HLSL" :{
+  "nFiles": 66,
+  "blank": 936,
+  "comment": 553,
+  "code": 4908},
+"Python" :{
+  "nFiles": 44,
+  "blank": 782,
+  "comment": 741,
+  "code": 3911},
+"XML" :{
+  "nFiles": 101,
+  "blank": 1,
+  "comment": 0,
+  "code": 3374},
+"PHP" :{
+  "nFiles": 18,
+  "blank": 321,
+  "comment": 67,
+  "code": 2660},
+"Gradle" :{
+  "nFiles": 53,
+  "blank": 499,
+  "comment": 652,
+  "code": 2205},
+"Jupyter Notebook" :{
+  "nFiles": 10,
+  "blank": 0,
+  "comment": 3729,
+  "code": 1511},
+"TeX" :{
+  "nFiles": 1,
+  "blank": 177,
+  "comment": 49,
+  "code": 1007},
+"DOS Batch" :{
+  "nFiles": 17,
+  "blank": 337,
+  "comment": 30,
+  "code": 995},
+"Bourne Shell" :{
+  "nFiles": 9,
+  "blank": 245,
+  "comment": 645,
+  "code": 969},
+"MSBuild script" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 7,
+  "code": 668},
+"C" :{
+  "nFiles": 13,
+  "blank": 169,
+  "comment": 21,
+  "code": 629},
+"Text" :{
+  "nFiles": 42,
+  "blank": 109,
+  "comment": 0,
+  "code": 472},
+"FXML" :{
+  "nFiles": 4,
+  "blank": 9,
+  "comment": 0,
+  "code": 441},
+"YAML" :{
+  "nFiles": 15,
+  "blank": 62,
+  "comment": 32,
+  "code": 342},
+"C/C++ Header" :{
+  "nFiles": 12,
+  "blank": 68,
+  "comment": 0,
+  "code": 171},
+"Properties" :{
+  "nFiles": 18,
+  "blank": 0,
+  "comment": 8,
+  "code": 80},
+"INI" :{
+  "nFiles": 6,
+  "blank": 0,
+  "comment": 0,
+  "code": 22},
+"Visual Studio Solution" :{
+  "nFiles": 1,
+  "blank": 1,
+  "comment": 1,
+  "code": 18},
+"Ant" :{
+  "nFiles": 2,
+  "blank": 18,
+  "comment": 28,
+  "code": 14},
+"SUM": {
+  "blank": 29282,
+  "comment": 35266,
+  "code": 301753,
+  "nFiles": 2340} }

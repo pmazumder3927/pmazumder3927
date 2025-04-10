@@ -13,18 +13,19 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
  <!-- LANGUAGES BREAKDOWN START -->
-```
-[ TOTAL LINES OF CODE: 5,379,686 ]
+<pre><code style="font-family: monospace; font-size: 14px;">
+📊 total lines of code: 433,246
+🔓 public: 301,753   🔒 private: 131,493
 
-Java                --> 133,294 lines
-Python              --> 10,151 lines
-JavaScript          --> 107,434 lines
-TypeScript          --> 29,991 lines
-JSX                 --> 0 lines
-PHP                 --> 10,099 lines
-C#                  --> 41,388 lines
-Other               --> 5,047,329 lines
-```
+🎯 dart                         6,428
+🐍 python                       5,498
+🌀 typescript                   29,991
+💛 javascript    ██         107,430
+☕ java          ██         152,857
+🐘 php                          10,099
+📓 jupyter notebook                4,653
+🔧 c#                           9,156
+</code></pre>
  <!-- LANGUAGES BREAKDOWN END -->
 more raccoon steganography coming soon
 
