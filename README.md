@@ -13,7 +13,19 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
  <!-- LANGUAGES BREAKDOWN START -->
+```
+[ LANGUAGES BREAKDOWN ]
 
+JavaScript   --> 1 lines
+TypeScript   --> 0 lines
+JSX          --> 0 lines
+Vue.js       --> 0 lines
+PHP          --> 0 lines
+C#           --> 41,388 lines
+Other        --> 5,029,054 lines
+
+[ TOTAL LINES OF CODE: 5,070,443 ]
+```
  <!-- LANGUAGES BREAKDOWN END -->
 more raccoon steganography coming soon
 
