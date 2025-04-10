@@ -54,11 +54,10 @@ jobs:
           TOTAL_LINES=$(jq '.SUM.code // 0' "$CLOC_JSON")
 
           JAVA_LINES=$(jq '.Java.code // 0' "$CLOC_JSON")
-          PYTHON_LINES=$(jq '.Python.code // 0 + ."Jupyter Notebook".code // 0' "$CLOC_JSON")
+          PYTHON_LINES=$(jq '(.Python.code // 0) + (."Jupyter Notebook".code // 0)' "$CLOC_JSON")
           JS_LINES=$(jq '.JavaScript.code // 0' "$CLOC_JSON")
           TS_LINES=$(jq '.TypeScript.code // 0' "$CLOC_JSON")
           JSX_LINES=$(jq '.JSX.code // 0' "$CLOC_JSON")
-          VUE_LINES=$(jq '."Vuejs Component".code // 0' "$CLOC_JSON")
           PHP_LINES=$(jq '.PHP.code // 0' "$CLOC_JSON")
           CSHARP_LINES=$(jq '."C#".code // 0' "$CLOC_JSON")
 
@@ -88,7 +87,6 @@ jobs:
           JavaScript          --> $FORMATTED_JS lines
           TypeScript          --> $FORMATTED_TS lines
           JSX                 --> $FORMATTED_JSX lines
-          Vue.js              --> $FORMATTED_VUE lines
           PHP                 --> $FORMATTED_PHP lines
           C#                  --> $FORMATTED_CSHARP lines
           Other               --> $FORMATTED_OTHER lines
