@@ -16,15 +16,15 @@ Here are some ideas to get you started:
 ```
 [ LANGUAGES BREAKDOWN ]
 
-JavaScript   --> 0 lines
-TypeScript   --> 0 lines
+JavaScript   --> 9,652 lines
+TypeScript   --> 28,932 lines
 JSX          --> 0 lines
 Vue.js       --> 0 lines
-PHP          --> 0 lines
+PHP          --> 7,439 lines
 C#           --> 0 lines
-Other        --> 0 lines
+Other        --> 10,676,872 lines
 
-[ TOTAL LINES OF CODE: 0 ]
+[ TOTAL LINES OF CODE: 10,722,895 ]
 ```
  <!-- LANGUAGES BREAKDOWN END -->
 more raccoon steganography coming soon

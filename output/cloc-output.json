@@ -1,1 +1,143 @@
-{}
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.98",
+  "elapsed_seconds"    : 17.0026390552521,
+  "n_files"            : 1804,
+  "n_lines"            : 10874184,
+  "files_per_second"   : 106.101176066709,
+  "lines_per_second"   : 639558.598207199},
+"CSV" :{
+  "nFiles": 215,
+  "blank": 0,
+  "comment": 0,
+  "code": 10594213},
+"Java" :{
+  "nFiles": 832,
+  "blank": 15805,
+  "comment": 12049,
+  "code": 61544},
+"TypeScript" :{
+  "nFiles": 312,
+  "blank": 1550,
+  "comment": 1173,
+  "code": 28932},
+"JavaScript" :{
+  "nFiles": 99,
+  "blank": 803,
+  "comment": 836,
+  "code": 9652},
+"PHP" :{
+  "nFiles": 32,
+  "blank": 1086,
+  "comment": 431,
+  "code": 7439},
+"Dart" :{
+  "nFiles": 68,
+  "blank": 399,
+  "comment": 389,
+  "code": 6428},
+"Jupyter Notebook" :{
+  "nFiles": 19,
+  "blank": 0,
+  "comment": 113929,
+  "code": 3142},
+"YAML" :{
+  "nFiles": 66,
+  "blank": 36,
+  "comment": 99,
+  "code": 2353},
+"GraphQL" :{
+  "nFiles": 31,
+  "blank": 105,
+  "comment": 0,
+  "code": 1628},
+"Gradle" :{
+  "nFiles": 31,
+  "blank": 407,
+  "comment": 351,
+  "code": 1599},
+"TeX" :{
+  "nFiles": 2,
+  "blank": 259,
+  "comment": 49,
+  "code": 1559},
+"SQL" :{
+  "nFiles": 3,
+  "blank": 7,
+  "comment": 14,
+  "code": 1086},
+"XML" :{
+  "nFiles": 21,
+  "blank": 4,
+  "comment": 46,
+  "code": 809},
+"DOS Batch" :{
+  "nFiles": 10,
+  "blank": 216,
+  "comment": 20,
+  "code": 696},
+"Bourne Shell" :{
+  "nFiles": 5,
+  "blank": 132,
+  "comment": 487,
+  "code": 539},
+"C++" :{
+  "nFiles": 8,
+  "blank": 105,
+  "comment": 44,
+  "code": 396},
+"CMake" :{
+  "nFiles": 7,
+  "blank": 76,
+  "comment": 106,
+  "code": 327},
+"Text" :{
+  "nFiles": 11,
+  "blank": 45,
+  "comment": 0,
+  "code": 177},
+"C/C++ Header" :{
+  "nFiles": 8,
+  "blank": 49,
+  "comment": 63,
+  "code": 103},
+"Properties" :{
+  "nFiles": 14,
+  "blank": 0,
+  "comment": 1,
+  "code": 80},
+"Windows Resource File" :{
+  "nFiles": 1,
+  "blank": 23,
+  "comment": 29,
+  "code": 69},
+"Swift" :{
+  "nFiles": 4,
+  "blank": 8,
+  "comment": 3,
+  "code": 44},
+"Arduino Sketch" :{
+  "nFiles": 1,
+  "blank": 20,
+  "comment": 7,
+  "code": 40},
+"INI" :{
+  "nFiles": 2,
+  "blank": 4,
+  "comment": 0,
+  "code": 28},
+"Dockerfile" :{
+  "nFiles": 1,
+  "blank": 5,
+  "comment": 17,
+  "code": 8},
+"Kotlin" :{
+  "nFiles": 1,
+  "blank": 2,
+  "comment": 0,
+  "code": 4},
+"SUM": {
+  "blank": 21146,
+  "comment": 130143,
+  "code": 10722895,
+  "nFiles": 1804} }
