@@ -35,26 +35,36 @@ jobs:
               ((page++))
             done
           }
-          
-          REPOS=$( (get_repos private && get_repos public) | sort -u )
-          mkdir -p private-repos
-          cd private-repos
 
-          for REPO in $REPOS; do
+          mkdir -p repos/public repos/private output
+
+          cd repos/private
+          for REPO in $(get_repos private); do
             REPO_URL="https://github.com/$REPO.git"
             AUTHENTICATED_REPO=$(echo "$REPO_URL" | sed "s|https://|https://$GH_PAT@|g")
             DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/$REPO" | jq -r '.default_branch')
-
-            echo "Cloning $REPO (branch: $DEFAULT_BRANCH)..."
             git clone --branch "$DEFAULT_BRANCH" --single-branch "$AUTHENTICATED_REPO" "$(basename $REPO)-$DEFAULT_BRANCH" || echo "Failed to clone $REPO."
           done
+          cd ../../
 
-          echo "Running cloc..."
-          mkdir -p ../output
-          cloc . \
+          cd repos/public
+          for REPO in $(get_repos public); do
+            REPO_URL="https://github.com/$REPO.git"
+            AUTHENTICATED_REPO=$(echo "$REPO_URL" | sed "s|https://|https://$GH_PAT@|g")
+            DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/$REPO" | jq -r '.default_branch')
+            git clone --branch "$DEFAULT_BRANCH" --single-branch "$AUTHENTICATED_REPO" "$(basename $REPO)-$DEFAULT_BRANCH" || echo "Failed to clone $REPO."
+          done
+          cd ../../
+
+          cloc repos/private \
             --exclude-ext=json,html,css,svg,md,ps1,scss,csv,prefab,unity,asset,meta \
             --exclude-dir=Library,Temp,obj,Build,build,.git \
-            --json > ../output/cloc-output.json
+            --json > output/cloc-private.json
+
+          cloc repos/public \
+            --exclude-ext=json,html,css,svg,md,ps1,scss,csv,prefab,unity,asset,meta \
+            --exclude-dir=Library,Temp,obj,Build,build,.git \
+            --json > output/cloc-public.json
 
       - name: Commit and Push Output
         env:
@@ -63,63 +73,56 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          CLOC_JSON="output/cloc-output.json"
-          TOTAL_LINES=$(jq '.SUM.code // 0' "$CLOC_JSON")
-
-          JAVA_LINES=$(jq '.Java.code // 0' "$CLOC_JSON")
-          PYTHON_LINES=$(jq '(.Python.code // 0) + (."Jupyter Notebook".code // 0)' "$CLOC_JSON")
-          JS_LINES=$(jq '.JavaScript.code // 0' "$CLOC_JSON")
-          TS_LINES=$(jq '.TypeScript.code // 0' "$CLOC_JSON")
-          JSX_LINES=$(jq '.JSX.code // 0' "$CLOC_JSON")
-          PHP_LINES=$(jq '.PHP.code // 0' "$CLOC_JSON")
-          CSHARP_LINES=$(jq '."C#".code // 0' "$CLOC_JSON")
-
-          OTHER_LINES=$((TOTAL_LINES - JAVA_LINES - PYTHON_LINES - JS_LINES - TS_LINES - JSX_LINES - PHP_LINES - CSHARP_LINES - VUE_LINES))
+          PUB_TOTAL=$(jq '.SUM.code // 0' output/cloc-public.json)
+          PRI_TOTAL=$(jq '.SUM.code // 0' output/cloc-private.json)
+          TOTAL_LINES=$((PUB_TOTAL + PRI_TOTAL))
 
           format_number() {
             export LC_ALL="en_US.UTF-8"
-            printf "%'d\n" $1
+            printf "%'d\n" "$1"
           }
 
-          FORMATTED_TOTAL=$(format_number $TOTAL_LINES)
-          FORMATTED_JAVA=$(format_number $JAVA_LINES)
-          FORMATTED_PYTHON=$(format_number $PYTHON_LINES)
-          FORMATTED_JS=$(format_number $JS_LINES)
-          FORMATTED_TS=$(format_number $TS_LINES)
-          FORMATTED_JSX=$(format_number $JSX_LINES)
-          FORMATTED_VUE=$(format_number $VUE_LINES)
-          FORMATTED_PHP=$(format_number $PHP_LINES)
-          FORMATTED_CSHARP=$(format_number $CSHARP_LINES)
-          FORMATTED_OTHER=$(format_number $OTHER_LINES)
+          draw_bar() {
+            local count=$1 max=$2
+            local ratio=$(awk "BEGIN { printf \"%.2f\", $count/$max }")
+            local level=$(awk "BEGIN { printf \"%d\", $ratio * 8 }")
+            local bars=(▁ ▂ ▃ ▄ ▅ ▆ ▇ █)
+            local bar=""
+            for ((i = 0; i < level; i++)); do bar+=${bars[7]}; done
+            echo "$bar"
+          }
 
-          CODE_BLOCK="\`\`\`
-          [ TOTAL LINES OF CODE: $FORMATTED_TOTAL ]
-          
-          Java                --> $FORMATTED_JAVA lines
-          Python              --> $FORMATTED_PYTHON lines
-          JavaScript          --> $FORMATTED_JS lines
-          TypeScript          --> $FORMATTED_TS lines
-          JSX                 --> $FORMATTED_JSX lines
-          PHP                 --> $FORMATTED_PHP lines
-          C#                  --> $FORMATTED_CSHARP lines
-          Other               --> $FORMATTED_OTHER lines
-          \`\`\`"
+          declare -A EMOJIS=( ["Java"]="☕" ["Python"]="🐍" ["Jupyter Notebook"]="📓" ["JavaScript"]="💛" \
+                              ["TypeScript"]="🌀" ["JSX"]="🎨" ["PHP"]="🐘" ["C#"]="🔧" ["Dart"]="🎯" )
 
-          # Update README
-          echo "$CODE_BLOCK" > temp_block.txt
+          echo "<pre><code style=\"font-family: monospace; font-size: 14px;\">" > temp_block.txt
+          echo "📊 total lines of code: $(format_number $TOTAL_LINES)" >> temp_block.txt
+          echo "🔓 public: $(format_number $PUB_TOTAL)   🔒 private: $(format_number $PRI_TOTAL)" >> temp_block.txt
+          echo "" >> temp_block.txt
+
+          for LANG in "${!EMOJIS[@]}"; do
+            PUB=$(jq --arg LANG "$LANG" '.[$LANG].code // 0' output/cloc-public.json)
+            PRI=$(jq --arg LANG "$LANG" '.[$LANG].code // 0' output/cloc-private.json)
+            TOTAL=$((PUB + PRI))
+            [[ $TOTAL -eq 0 ]] && continue
+            BAR=$(draw_bar $TOTAL $TOTAL_LINES)
+            LANG_LOWER=$(echo "$LANG" | tr '[:upper:]' '[:lower:]')
+            EMOJI="${EMOJIS[$LANG]}"
+            PADDED_LANG=$(printf '%-13s' "$LANG_LOWER")
+            PADDED_BAR=$(printf '%-14s' "$BAR")
+            PADDED_TOTAL=$(format_number $TOTAL)
+            echo "$EMOJI $PADDED_LANG $PADDED_BAR $PADDED_TOTAL" >> temp_block.txt
+          done
+
+          echo "</code></pre>" >> temp_block.txt
+
           sed -i '/<!-- LANGUAGES BREAKDOWN START -->/,/<!-- LANGUAGES BREAKDOWN END -->/{
               //!d
               /<!-- LANGUAGES BREAKDOWN START -->/r temp_block.txt
           }' README.md
+
           rm temp_block.txt
 
-          # Dump full JSON to cloc-details.md
-          echo "# Detailed cloc Output" > cloc-details.md
-          echo -e "\n<details>\n<summary><strong>Full cloc-output.json</strong> (click to expand)</summary>\n" >> cloc-details.md
-          echo -e '\n```json' >> cloc-details.md
-          jq . "$CLOC_JSON" >> cloc-details.md
-          echo -e '```\n</details>' >> cloc-details.md
-
-          git add output/cloc-output.json README.md cloc-details.md
-          git commit -m "chore: update README and cloc details with latest code stats" || echo "No changes to commit"
+          git add output/cloc-*.json README.md
+          git commit -m "chore: update README with latest code stats" || echo "No changes to commit"
           git push origin HEAD
