@@ -14,17 +14,16 @@ Here are some ideas to get you started:
 -->
  <!-- LANGUAGES BREAKDOWN START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-📊 total lines of code: 433,246
-🔓 public: 301,753   🔒 private: 131,493
+📊 total lines of code: 433,253
+🔓 public: 301,760   🔒 private: 131,493
 
-🎯 dart                         6,428
-🐍 python                       5,498
-🌀 typescript                   29,991
-💛 javascript    ██         107,430
-☕ java          ██         152,857
-🐘 php                          10,099
-📓 jupyter notebook                4,653
-🔧 c#                           9,156
+🎯 dart          ···················· 6,428
+🐍 python        ···················· 5,498
+🌀 typescript    █··················· 29,991
+💛 javascript    ████················ 107,430
+☕ java          ███████············· 152,857
+🐘 php           ···················· 10,099
+🔧 c#            ···················· 9,156
 </code></pre>
  <!-- LANGUAGES BREAKDOWN END -->
 more raccoon steganography coming soon
