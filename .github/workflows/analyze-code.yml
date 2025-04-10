@@ -2,8 +2,8 @@ name: Update Lines of Code in Readme
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # Runs weekly on Sunday at midnight (UTC)
-  workflow_dispatch: # Allows manual trigger
+    - cron: "0 0 * * 0" # Weekly on Sunday at midnight UTC
+  workflow_dispatch:
 
 jobs:
   count-lines:
@@ -25,7 +25,6 @@ jobs:
         run: |
           USERNAME="<your-github-username>"
 
-          # Fetch private (and public) repos the user owns that aren't forks
           REPOS=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/user/repos?per_page=100&visibility=private" | jq -r '.[] | select(.fork == false) | .full_name')
 
           mkdir -p private-repos
@@ -34,7 +33,6 @@ jobs:
           for REPO in $REPOS; do
             REPO_URL="https://github.com/$REPO.git"
             AUTHENTICATED_REPO=$(echo "$REPO_URL" | sed "s|https://|https://$GH_PAT@|g")
-
             DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/$REPO" | jq -r '.default_branch')
 
             echo "Cloning $REPO (branch: $DEFAULT_BRANCH)..."
@@ -43,7 +41,7 @@ jobs:
 
           echo "Running cloc..."
           mkdir -p ../output
-          cloc . --exclude-ext=json,html,css,svg,md,ps1,scss --json > ../output/cloc-output.json
+          cloc . --exclude-ext=json,html,css,svg,md,ps1,scss,csv --json > ../output/cloc-output.json
 
       - name: Commit and Push Output
         env:
@@ -52,11 +50,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Read cloc output
           CLOC_JSON="output/cloc-output.json"
           TOTAL_LINES=$(jq '.SUM.code // 0' "$CLOC_JSON")
+
           JAVA_LINES=$(jq '.Java.code // 0' "$CLOC_JSON")
-          PYTHON_LINES=$(jq '.Python.code // 0' "$CLOC_JSON")
+          PYTHON_LINES=$(jq '.Python.code // 0 + ."Jupyter Notebook".code // 0' "$CLOC_JSON")
           JS_LINES=$(jq '.JavaScript.code // 0' "$CLOC_JSON")
           TS_LINES=$(jq '.TypeScript.code // 0' "$CLOC_JSON")
           JSX_LINES=$(jq '.JSX.code // 0' "$CLOC_JSON")
@@ -81,38 +79,38 @@ jobs:
           FORMATTED_PHP=$(format_number $PHP_LINES)
           FORMATTED_CSHARP=$(format_number $CSHARP_LINES)
           FORMATTED_OTHER=$(format_number $OTHER_LINES)
-          # Write language summary to README
 
           CODE_BLOCK="\`\`\`
           [ LANGUAGES BREAKDOWN ]
 
-          Java        --> $FORMATTED_JAVA lines
-          Python      --> $FORMATTED_PYTHON lines
-          JavaScript  --> $FORMATTED_JS lines
-          TypeScript  --> $FORMATTED_TS lines
-          JSX         --> $FORMATTED_JSX lines
-          Vue.js      --> $FORMATTED_VUE lines
-          PHP         --> $FORMATTED_PHP lines
-          C#          --> $FORMATTED_CSHARP lines
-          Other       --> $FORMATTED_OTHER lines
+          Java                 --> $FORMATTED_JAVA lines
+          Python (incl. Notebooks) --> $FORMATTED_PYTHON lines
+          JavaScript          --> $FORMATTED_JS lines
+          TypeScript          --> $FORMATTED_TS lines
+          JSX                 --> $FORMATTED_JSX lines
+          Vue.js              --> $FORMATTED_VUE lines
+          PHP                 --> $FORMATTED_PHP lines
+          C#                  --> $FORMATTED_CSHARP lines
+          Other               --> $FORMATTED_OTHER lines
 
           [ TOTAL LINES OF CODE: $FORMATTED_TOTAL ]
           \`\`\`"
 
+          # Update README
           echo "$CODE_BLOCK" > temp_block.txt
           sed -i '/<!-- LANGUAGES BREAKDOWN START -->/,/<!-- LANGUAGES BREAKDOWN END -->/{
               //!d
               /<!-- LANGUAGES BREAKDOWN START -->/r temp_block.txt
           }' README.md
           rm temp_block.txt
-          
-          # Dump full cloc-output.json to cloc-details.md
+
+          # Dump full JSON to cloc-details.md
           echo "# Detailed cloc Output" > cloc-details.md
           echo -e "\n<details>\n<summary><strong>Full cloc-output.json</strong> (click to expand)</summary>\n" >> cloc-details.md
           echo -e '\n```json' >> cloc-details.md
-          jq . output/cloc-output.json >> cloc-details.md  # Pretty-print JSON
+          jq . "$CLOC_JSON" >> cloc-details.md
           echo -e '```\n</details>' >> cloc-details.md
 
-          git add output/cloc-output.json README.md
-          git commit -m "chore: update README and cloc-output.json with latest code stats" || echo "No changes to commit"
+          git add output/cloc-output.json README.md cloc-details.md
+          git commit -m "chore: update README and cloc details with latest code stats" || echo "No changes to commit"
           git push origin HEAD
