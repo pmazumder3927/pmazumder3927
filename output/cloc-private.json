@@ -1,21 +1,21 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 2.5184690952301,
-  "n_files"            : 1612,
-  "n_lines"            : 283726,
-  "files_per_second"   : 640.071384260015,
-  "lines_per_second"   : 112658.12256238},
+  "elapsed_seconds"    : 2.49092102050781,
+  "n_files"            : 1633,
+  "n_lines"            : 287968,
+  "files_per_second"   : 655.580801862232,
+  "lines_per_second"   : 115607.037569298},
 "Java" :{
   "nFiles": 832,
   "blank": 15805,
   "comment": 12049,
   "code": 61544},
 "TypeScript" :{
-  "nFiles": 319,
-  "blank": 1673,
-  "comment": 1270,
-  "code": 29991},
+  "nFiles": 335,
+  "blank": 2032,
+  "comment": 1455,
+  "code": 33174},
 "JavaScript" :{
   "nFiles": 95,
   "blank": 803,
@@ -41,6 +41,11 @@
   "blank": 36,
   "comment": 99,
   "code": 2353},
+"SQL" :{
+  "nFiles": 9,
+  "blank": 112,
+  "comment": 90,
+  "code": 1731},
 "GraphQL" :{
   "nFiles": 31,
   "blank": 105,
@@ -61,11 +66,6 @@
   "blank": 259,
   "comment": 49,
   "code": 1559},
-"SQL" :{
-  "nFiles": 4,
-  "blank": 39,
-  "comment": 36,
-  "code": 1343},
 "XML" :{
   "nFiles": 21,
   "blank": 4,
@@ -137,7 +137,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 21770,
-  "comment": 130463,
-  "code": 131493,
-  "nFiles": 1612} }
+  "blank": 22202,
+  "comment": 130702,
+  "code": 135064,
+  "nFiles": 1633} }
