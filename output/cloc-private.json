@@ -1,16 +1,16 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 2.50690698623657,
-  "n_files"            : 1644,
-  "n_lines"            : 291711,
-  "files_per_second"   : 655.788191993518,
-  "lines_per_second"   : 116362.913184076},
+  "elapsed_seconds"    : 2.42925691604614,
+  "n_files"            : 1539,
+  "n_lines"            : 277820,
+  "files_per_second"   : 633.52706329015,
+  "lines_per_second"   : 114364.190203554},
 "Java" :{
-  "nFiles": 832,
-  "blank": 15805,
-  "comment": 12049,
-  "code": 61544},
+  "nFiles": 728,
+  "blank": 13675,
+  "comment": 9689,
+  "code": 52271},
 "TypeScript" :{
   "nFiles": 341,
   "blank": 2215,
@@ -56,16 +56,16 @@
   "blank": 105,
   "comment": 0,
   "code": 1628},
-"Gradle" :{
-  "nFiles": 31,
-  "blank": 407,
-  "comment": 351,
-  "code": 1599},
 "TeX" :{
   "nFiles": 2,
   "blank": 259,
   "comment": 49,
   "code": 1559},
+"Gradle" :{
+  "nFiles": 30,
+  "blank": 380,
+  "comment": 331,
+  "code": 1518},
 "XML" :{
   "nFiles": 21,
   "blank": 4,
@@ -137,7 +137,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 22517,
-  "comment": 130945,
-  "code": 138249,
-  "nFiles": 1644} }
+  "blank": 20360,
+  "comment": 128565,
+  "code": 128895,
+  "nFiles": 1539} }

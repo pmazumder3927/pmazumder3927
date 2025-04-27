@@ -1,21 +1,21 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.41747188568115,
-  "n_files"            : 2340,
-  "n_lines"            : 366304,
-  "files_per_second"   : 529.714746478615,
-  "lines_per_second"   : 82921.6369632917},
+  "elapsed_seconds"    : 4.52810406684875,
+  "n_files"            : 2417,
+  "n_lines"            : 377978,
+  "files_per_second"   : 533.777484862901,
+  "lines_per_second"   : 83473.7882389365},
+"Java" :{
+  "nFiles": 1260,
+  "blank": 21679,
+  "comment": 26786,
+  "code": 99347},
 "JavaScript" :{
   "nFiles": 63,
   "blank": 3909,
   "comment": 3079,
   "code": 97782},
-"Java" :{
-  "nFiles": 1184,
-  "blank": 19867,
-  "comment": 25086,
-  "code": 91313},
 "Unity-Prefab" :{
   "nFiles": 525,
   "blank": 0,
@@ -47,10 +47,10 @@
   "comment": 67,
   "code": 2660},
 "Gradle" :{
-  "nFiles": 53,
-  "blank": 499,
-  "comment": 652,
-  "code": 2205},
+  "nFiles": 54,
+  "blank": 526,
+  "comment": 672,
+  "code": 2286},
 "Jupyter Notebook" :{
   "nFiles": 10,
   "blank": 0,
@@ -122,7 +122,7 @@
   "comment": 28,
   "code": 14},
 "SUM": {
-  "blank": 29282,
-  "comment": 35266,
-  "code": 301756,
-  "nFiles": 2340} }
+  "blank": 31121,
+  "comment": 36986,
+  "code": 309871,
+  "nFiles": 2417} }
