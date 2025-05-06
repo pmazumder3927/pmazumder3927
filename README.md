@@ -27,5 +27,3 @@ Here are some ideas to get you started:
 </code></pre>
  <!-- LANGUAGES BREAKDOWN END -->
 more raccoon steganography coming soon
-
-![raccoon](https://github.com/pmazumder3927/pmazumder3927/blob/main/raccoon.png)
