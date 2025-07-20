@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.60780715942383,
-  "n_files"            : 2483,
-  "n_lines"            : 390843,
-  "files_per_second"   : 538.868037244527,
-  "lines_per_second"   : 84821.9090941453},
+  "elapsed_seconds"    : 4.63447999954224,
+  "n_files"            : 2501,
+  "n_lines"            : 391607,
+  "files_per_second"   : 539.650618892957,
+  "lines_per_second"   : 84498.5845313132},
 "Java" :{
   "nFiles": 1272,
   "blank": 22011,
@@ -15,7 +15,7 @@
   "nFiles": 64,
   "blank": 3910,
   "comment": 3080,
-  "code": 97801},
+  "code": 97813},
 "Unity-Prefab" :{
   "nFiles": 525,
   "blank": 0,
@@ -27,20 +27,20 @@
   "comment": 538,
   "code": 9156},
 "Python" :{
-  "nFiles": 57,
-  "blank": 1674,
-  "comment": 1751,
-  "code": 6784},
+  "nFiles": 58,
+  "blank": 1682,
+  "comment": 1761,
+  "code": 6797},
+"TypeScript" :{
+  "nFiles": 49,
+  "blank": 442,
+  "comment": 70,
+  "code": 5379},
 "HLSL" :{
   "nFiles": 66,
   "blank": 936,
   "comment": 553,
   "code": 4908},
-"TypeScript" :{
-  "nFiles": 33,
-  "blank": 390,
-  "comment": 66,
-  "code": 4736},
 "XML" :{
   "nFiles": 101,
   "blank": 1,
@@ -116,6 +116,11 @@
   "blank": 0,
   "comment": 0,
   "code": 22},
+"JSON" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 22},
 "Visual Studio Solution" :{
   "nFiles": 1,
   "blank": 1,
@@ -127,7 +132,7 @@
   "comment": 28,
   "code": 14},
 "SUM": {
-  "blank": 32774,
-  "comment": 39023,
-  "code": 319046,
-  "nFiles": 2483} }
+  "blank": 32834,
+  "comment": 39037,
+  "code": 319736,
+  "nFiles": 2501} }
