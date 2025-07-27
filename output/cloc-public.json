@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.63447999954224,
-  "n_files"            : 2501,
-  "n_lines"            : 391607,
-  "files_per_second"   : 539.650618892957,
-  "lines_per_second"   : 84498.5845313132},
+  "elapsed_seconds"    : 4.6347541809082,
+  "n_files"            : 2506,
+  "n_lines"            : 391970,
+  "files_per_second"   : 540.697500273669,
+  "lines_per_second"   : 84571.9070958778},
 "Java" :{
   "nFiles": 1272,
   "blank": 22011,
@@ -27,15 +27,15 @@
   "comment": 538,
   "code": 9156},
 "Python" :{
-  "nFiles": 58,
-  "blank": 1682,
-  "comment": 1761,
-  "code": 6797},
+  "nFiles": 62,
+  "blank": 1737,
+  "comment": 1918,
+  "code": 7233},
 "TypeScript" :{
-  "nFiles": 49,
-  "blank": 442,
-  "comment": 70,
-  "code": 5379},
+  "nFiles": 52,
+  "blank": 474,
+  "comment": 93,
+  "code": 5727},
 "HLSL" :{
   "nFiles": 66,
   "blank": 936,
@@ -57,15 +57,15 @@
   "comment": 672,
   "code": 2286},
 "Jupyter Notebook" :{
-  "nFiles": 12,
+  "nFiles": 10,
   "blank": 0,
-  "comment": 4220,
-  "code": 1702},
+  "comment": 3729,
+  "code": 1511},
 "Bourne Shell" :{
   "nFiles": 11,
   "blank": 272,
   "comment": 665,
-  "code": 1096},
+  "code": 1090},
 "TeX" :{
   "nFiles": 1,
   "blank": 177,
@@ -132,7 +132,7 @@
   "comment": 28,
   "code": 14},
 "SUM": {
-  "blank": 32834,
-  "comment": 39037,
-  "code": 319736,
-  "nFiles": 2501} }
+  "blank": 32921,
+  "comment": 38726,
+  "code": 320323,
+  "nFiles": 2506} }
