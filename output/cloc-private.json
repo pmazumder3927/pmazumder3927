@@ -1,26 +1,36 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 2.50165104866028,
-  "n_files"            : 1616,
-  "n_lines"            : 294883,
-  "files_per_second"   : 645.97338660219,
-  "lines_per_second"   : 117875.352822657},
+  "elapsed_seconds"    : 2.81891798973083,
+  "n_files"            : 1831,
+  "n_lines"            : 372113,
+  "files_per_second"   : 649.54000317506,
+  "lines_per_second"   : 132005.61398224},
+"TypeScript" :{
+  "nFiles": 444,
+  "blank": 4148,
+  "comment": 2623,
+  "code": 53120},
 "Java" :{
   "nFiles": 728,
   "blank": 13675,
   "comment": 9689,
   "code": 52271},
-"TypeScript" :{
-  "nFiles": 385,
-  "blank": 3195,
-  "comment": 2254,
-  "code": 46110},
+"Python" :{
+  "nFiles": 171,
+  "blank": 6584,
+  "comment": 6141,
+  "code": 26061},
 "JavaScript" :{
-  "nFiles": 100,
-  "blank": 889,
-  "comment": 862,
-  "code": 10112},
+  "nFiles": 104,
+  "blank": 920,
+  "comment": 880,
+  "code": 10444},
+"Jupyter Notebook" :{
+  "nFiles": 23,
+  "blank": 0,
+  "comment": 140429,
+  "code": 9213},
 "PHP" :{
   "nFiles": 32,
   "blank": 1086,
@@ -31,21 +41,11 @@
   "blank": 399,
   "comment": 389,
   "code": 6428},
-"Python" :{
-  "nFiles": 38,
-  "blank": 1278,
-  "comment": 881,
-  "code": 4977},
-"Jupyter Notebook" :{
-  "nFiles": 19,
-  "blank": 0,
-  "comment": 113929,
-  "code": 3142},
 "YAML" :{
-  "nFiles": 66,
-  "blank": 36,
-  "comment": 99,
-  "code": 2353},
+  "nFiles": 70,
+  "blank": 501,
+  "comment": 131,
+  "code": 5686},
 "SQL" :{
   "nFiles": 19,
   "blank": 153,
@@ -71,16 +71,16 @@
   "blank": 4,
   "comment": 46,
   "code": 809},
+"Bourne Shell" :{
+  "nFiles": 10,
+  "blank": 162,
+  "comment": 504,
+  "code": 724},
 "DOS Batch" :{
   "nFiles": 10,
   "blank": 216,
   "comment": 20,
   "code": 696},
-"Bourne Shell" :{
-  "nFiles": 8,
-  "blank": 136,
-  "comment": 487,
-  "code": 566},
 "C++" :{
   "nFiles": 8,
   "blank": 105,
@@ -91,16 +91,16 @@
   "blank": 76,
   "comment": 106,
   "code": 327},
+"Text" :{
+  "nFiles": 16,
+  "blank": 52,
+  "comment": 0,
+  "code": 214},
 "C/C++ Header" :{
   "nFiles": 8,
   "blank": 49,
   "comment": 63,
   "code": 103},
-"Text" :{
-  "nFiles": 11,
-  "blank": 34,
-  "comment": 0,
-  "code": 99},
 "Properties" :{
   "nFiles": 14,
   "blank": 0,
@@ -111,6 +111,11 @@
   "blank": 23,
   "comment": 29,
   "code": 69},
+"Dockerfile" :{
+  "nFiles": 3,
+  "blank": 23,
+  "comment": 48,
+  "code": 53},
 "Swift" :{
   "nFiles": 4,
   "blank": 8,
@@ -121,28 +126,23 @@
   "blank": 20,
   "comment": 7,
   "code": 40},
+"TOML" :{
+  "nFiles": 3,
+  "blank": 7,
+  "comment": 0,
+  "code": 40},
 "INI" :{
   "nFiles": 2,
   "blank": 4,
   "comment": 0,
   "code": 28},
-"TOML" :{
-  "nFiles": 1,
-  "blank": 0,
-  "comment": 0,
-  "code": 9},
-"Dockerfile" :{
-  "nFiles": 1,
-  "blank": 5,
-  "comment": 17,
-  "code": 8},
 "Kotlin" :{
   "nFiles": 1,
   "blank": 2,
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 22137,
-  "comment": 129878,
-  "code": 142868,
-  "nFiles": 1616} }
+  "blank": 28961,
+  "comment": 162105,
+  "code": 181047,
+  "nFiles": 1831} }
