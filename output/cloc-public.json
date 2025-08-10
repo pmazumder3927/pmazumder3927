@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.71302390098572,
-  "n_files"            : 2604,
-  "n_lines"            : 401793,
-  "files_per_second"   : 552.51152014217,
-  "lines_per_second"   : 85251.6364103237},
+  "elapsed_seconds"    : 4.79271602630615,
+  "n_files"            : 2617,
+  "n_lines"            : 404271,
+  "files_per_second"   : 546.03694139938,
+  "lines_per_second"   : 84351.1273735073},
 "Java" :{
   "nFiles": 1275,
   "blank": 22035,
@@ -26,16 +26,16 @@
   "blank": 1259,
   "comment": 223,
   "code": 13104},
+"Python" :{
+  "nFiles": 78,
+  "blank": 2167,
+  "comment": 2458,
+  "code": 9243},
 "C#" :{
   "nFiles": 135,
   "blank": 1772,
   "comment": 538,
   "code": 9156},
-"Python" :{
-  "nFiles": 68,
-  "blank": 1843,
-  "comment": 1999,
-  "code": 7624},
 "HLSL" :{
   "nFiles": 66,
   "blank": 936,
@@ -87,20 +87,20 @@
   "comment": 21,
   "code": 629},
 "Text" :{
-  "nFiles": 43,
+  "nFiles": 44,
   "blank": 115,
   "comment": 0,
-  "code": 505},
+  "code": 512},
 "FXML" :{
   "nFiles": 4,
   "blank": 9,
   "comment": 0,
   "code": 441},
 "YAML" :{
-  "nFiles": 16,
-  "blank": 67,
-  "comment": 37,
-  "code": 367},
+  "nFiles": 17,
+  "blank": 77,
+  "comment": 42,
+  "code": 396},
 "C/C++ Header" :{
   "nFiles": 12,
   "blank": 68,
@@ -116,6 +116,11 @@
   "blank": 0,
   "comment": 9,
   "code": 81},
+"TOML" :{
+  "nFiles": 2,
+  "blank": 4,
+  "comment": 0,
+  "code": 28},
 "INI" :{
   "nFiles": 6,
   "blank": 0,
@@ -136,13 +141,8 @@
   "blank": 18,
   "comment": 28,
   "code": 14},
-"TOML" :{
-  "nFiles": 1,
-  "blank": 0,
-  "comment": 0,
-  "code": 7},
 "SUM": {
-  "blank": 33849,
-  "comment": 39349,
-  "code": 328595,
-  "nFiles": 2604} }
+  "blank": 34187,
+  "comment": 39813,
+  "code": 330271,
+  "nFiles": 2617} }

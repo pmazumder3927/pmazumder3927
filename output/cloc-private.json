@@ -1,26 +1,26 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 2.81891798973083,
-  "n_files"            : 1831,
-  "n_lines"            : 372113,
-  "files_per_second"   : 649.54000317506,
-  "lines_per_second"   : 132005.61398224},
+  "elapsed_seconds"    : 2.89281105995178,
+  "n_files"            : 1861,
+  "n_lines"            : 374181,
+  "files_per_second"   : 643.318889976527,
+  "lines_per_second"   : 129348.579027569},
 "TypeScript" :{
-  "nFiles": 444,
-  "blank": 4148,
-  "comment": 2623,
-  "code": 53120},
+  "nFiles": 454,
+  "blank": 4406,
+  "comment": 2802,
+  "code": 55068},
 "Java" :{
   "nFiles": 728,
   "blank": 13675,
   "comment": 9689,
   "code": 52271},
 "Python" :{
-  "nFiles": 171,
-  "blank": 6584,
-  "comment": 6141,
-  "code": 26061},
+  "nFiles": 187,
+  "blank": 6556,
+  "comment": 6094,
+  "code": 25541},
 "JavaScript" :{
   "nFiles": 104,
   "blank": 920,
@@ -43,9 +43,9 @@
   "code": 6428},
 "YAML" :{
   "nFiles": 70,
-  "blank": 501,
+  "blank": 518,
   "comment": 131,
-  "code": 5686},
+  "code": 5786},
 "SQL" :{
   "nFiles": 19,
   "blank": 153,
@@ -74,7 +74,7 @@
 "Bourne Shell" :{
   "nFiles": 10,
   "blank": 162,
-  "comment": 504,
+  "comment": 505,
   "code": 724},
 "DOS Batch" :{
   "nFiles": 10,
@@ -92,10 +92,15 @@
   "comment": 106,
   "code": 327},
 "Text" :{
-  "nFiles": 16,
+  "nFiles": 18,
   "blank": 52,
   "comment": 0,
-  "code": 214},
+  "code": 291},
+"TOML" :{
+  "nFiles": 5,
+  "blank": 17,
+  "comment": 0,
+  "code": 113},
 "C/C++ Header" :{
   "nFiles": 8,
   "blank": 49,
@@ -126,11 +131,6 @@
   "blank": 20,
   "comment": 7,
   "code": 40},
-"TOML" :{
-  "nFiles": 3,
-  "blank": 7,
-  "comment": 0,
-  "code": 40},
 "INI" :{
   "nFiles": 2,
   "blank": 4,
@@ -142,7 +142,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 28961,
-  "comment": 162105,
-  "code": 181047,
-  "nFiles": 1831} }
+  "blank": 29218,
+  "comment": 162238,
+  "code": 182725,
+  "nFiles": 1861} }
