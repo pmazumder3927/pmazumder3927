@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.79271602630615,
+  "elapsed_seconds"    : 4.72942590713501,
   "n_files"            : 2617,
-  "n_lines"            : 404271,
-  "files_per_second"   : 546.03694139938,
-  "lines_per_second"   : 84351.1273735073},
+  "n_lines"            : 404630,
+  "files_per_second"   : 553.344116471279,
+  "lines_per_second"   : 85555.8386884882},
 "Java" :{
   "nFiles": 1275,
   "blank": 22035,
@@ -28,9 +28,9 @@
   "code": 13104},
 "Python" :{
   "nFiles": 78,
-  "blank": 2167,
-  "comment": 2458,
-  "code": 9243},
+  "blank": 2187,
+  "comment": 2479,
+  "code": 9437},
 "C#" :{
   "nFiles": 135,
   "blank": 1772,
@@ -91,16 +91,16 @@
   "blank": 115,
   "comment": 0,
   "code": 512},
+"YAML" :{
+  "nFiles": 17,
+  "blank": 97,
+  "comment": 49,
+  "code": 493},
 "FXML" :{
   "nFiles": 4,
   "blank": 9,
   "comment": 0,
   "code": 441},
-"YAML" :{
-  "nFiles": 17,
-  "blank": 77,
-  "comment": 42,
-  "code": 396},
 "C/C++ Header" :{
   "nFiles": 12,
   "blank": 68,
@@ -142,7 +142,7 @@
   "comment": 28,
   "code": 14},
 "SUM": {
-  "blank": 34187,
-  "comment": 39813,
-  "code": 330271,
+  "blank": 34227,
+  "comment": 39841,
+  "code": 330562,
   "nFiles": 2617} }
