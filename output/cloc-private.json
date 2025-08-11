@@ -1,26 +1,26 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 2.82860589027405,
-  "n_files"            : 1864,
-  "n_lines"            : 375210,
-  "files_per_second"   : 658.981870330266,
-  "lines_per_second"   : 132648.383887671},
+  "elapsed_seconds"    : 2.84499502182007,
+  "n_files"            : 1867,
+  "n_lines"            : 375636,
+  "files_per_second"   : 656.240164106016,
+  "lines_per_second"   : 132033.974442489},
 "TypeScript" :{
-  "nFiles": 456,
-  "blank": 4445,
-  "comment": 2872,
-  "code": 55407},
+  "nFiles": 457,
+  "blank": 4467,
+  "comment": 2881,
+  "code": 55701},
 "Java" :{
   "nFiles": 728,
   "blank": 13675,
   "comment": 9689,
   "code": 52271},
 "Python" :{
-  "nFiles": 188,
-  "blank": 6641,
-  "comment": 6162,
-  "code": 25968},
+  "nFiles": 189,
+  "blank": 6661,
+  "comment": 6164,
+  "code": 26024},
 "JavaScript" :{
   "nFiles": 104,
   "blank": 920,
@@ -136,13 +136,18 @@
   "blank": 4,
   "comment": 0,
   "code": 28},
+"JSON" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 23},
 "Kotlin" :{
   "nFiles": 1,
   "blank": 2,
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 29342,
-  "comment": 162376,
-  "code": 183492,
-  "nFiles": 1864} }
+  "blank": 29384,
+  "comment": 162387,
+  "code": 183865,
+  "nFiles": 1867} }
