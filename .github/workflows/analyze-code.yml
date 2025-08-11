@@ -1,87 +1,3 @@
-name: Update LOC & Churn in Readme
-
-on:
-  schedule:
-    - cron: "0 0 * * 0" # Weekly on Sunday at midnight UTC
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  count-lines:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Install Dependencies
-        run: |
-          set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y jq cloc locales curl
-          sudo locale-gen en_US.UTF-8
-
-      - name: Fetch and Clone Repositories
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-        run: |
-          set -euo pipefail
-
-          USERNAME="pmazumder3927"
-
-          get_repos() {
-            local visibility=$1
-            local page=1
-            while :; do
-              result=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/user/repos?visibility=$visibility&per_page=100&page=$page")
-              names=$(echo "$result" | jq -r '.[] | select(.fork == false) | .full_name')
-              [ -z "$names" ] && break
-              echo "$names"
-              ((page++))
-            done
-          }
-
-          rm -rf repos output || true
-          mkdir -p repos/public repos/private output
-
-          # Clone private repos
-          cd repos/private
-          for REPO in $(get_repos private); do
-            REPO_URL="https://github.com/$REPO.git"
-            AUTH_REPO=$(echo "$REPO_URL" | sed "s|https://|https://$GH_PAT@|g")
-            DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/$REPO" | jq -r '.default_branch')
-            git clone --branch "$DEFAULT_BRANCH" --single-branch --depth 1 "$AUTH_REPO" "$(basename "$REPO")-$DEFAULT_BRANCH" || echo "Failed to clone $REPO."
-          done
-          cd ../../
-
-          # Clone public repos
-          cd repos/public
-          for REPO in $(get_repos public); do
-            REPO_URL="https://github.com/$REPO.git"
-            AUTH_REPO=$(echo "$REPO_URL" | sed "s|https://|https://$GH_PAT@|g")
-            DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/$REPO" | jq -r '.default_branch')
-            git clone --branch "$DEFAULT_BRANCH" --single-branch --depth 1 "$AUTH_REPO" "$(basename "$REPO")-$DEFAULT_BRANCH" || echo "Failed to clone $REPO."
-          done
-          cd ../../
-
-      - name: Count LOC snapshots (public/private)
-        run: |
-          set -euo pipefail
-
-          cloc repos/private \
-            --exclude-ext=json,html,css,svg,md,ps1,scss,csv,prefab,unity,asset,meta \
-            --exclude-dir=Library,Temp,obj,Build,build,.git \
-            --json > output/cloc-private.json || echo '{"SUM":{"code":0}}' > output/cloc-private.json
-
-          cloc repos/public \
-            --exclude-ext=json,html,css,svg,md,ps1,scss,csv,prefab,unity,asset,meta \
-            --exclude-dir=Library,Temp,obj,Build,build,.git \
-            --json > output/cloc-public.json || echo '{"SUM":{"code":0}}' > output/cloc-public.json
-
       - name: Compute Additions/Deletions (weekly & lifetime)
         env:
           AUTHOR_FILTER: ${{ secrets.AUTHOR_FILTER }} # optional: e.g. "Pramit|pmazumder@"
@@ -91,6 +7,15 @@ jobs:
 
           EXCLUDE_EXTS='(json|html|css|svg|md|ps1|scss|csv|prefab|unity|asset|meta)$'
           EXCLUDE_DIRS='/(Library|Temp|obj|Build|build|\.git)/'
+
+          unshallow_if_needed() {
+            # ensure full history so deletions exist in the log
+            if git rev-parse --is-shallow-repository >/dev/null 2>&1; then
+              # unshallow only the checked-out branch to keep bandwidth sane
+              git fetch --prune --unshallow --tags origin || \
+              git fetch --prune --depth=2147483647 --tags origin
+            fi
+          }
 
           churn_dir() {
             local root="$1"
@@ -102,7 +27,12 @@ jobs:
             for repo in "$root"/*; do
               [ -d "$repo/.git" ] || continue
               pushd "$repo" >/dev/null
-              git fetch --quiet || true
+
+              unshallow_if_needed
+
+              # Make sure we’re on the default branch (the clone used --single-branch)
+              BR=$(git rev-parse --abbrev-ref HEAD)
+              git fetch --quiet origin "$BR" || true
 
               declare -a ARGS=(--no-merges --numstat --format=%H)
               [ -n "$since" ] && ARGS+=(--since="$since")
@@ -142,114 +72,3 @@ jobs:
           PRI_ALL=$(churn_dir repos/private "" "${AUTHOR_FILTER:-}")
           echo "$PUB_ALL" > output/churn-public-all.json
           echo "$PRI_ALL" > output/churn-private-all.json
-
-      - name: Build README block and push
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-        run: |
-          set -euo pipefail
-
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          PUB_TOTAL=$(jq '.SUM.code // 0' output/cloc-public.json)
-          PRI_TOTAL=$(jq '.SUM.code // 0' output/cloc-private.json)
-          TOTAL_LINES=$((PUB_TOTAL + PRI_TOTAL))
-
-          PUB_W_ADD=$(jq '.additions' output/churn-public-week.json)
-          PUB_W_DEL=$(jq '.deletions' output/churn-public-week.json)
-          PRI_W_ADD=$(jq '.additions' output/churn-private-week.json)
-          PRI_W_DEL=$(jq '.deletions' output/churn-private-week.json)
-          WEEK_ADD=$((PUB_W_ADD + PRI_W_ADD))
-          WEEK_DEL=$((PUB_W_DEL + PRI_W_DEL))
-          WEEK_NET=$((WEEK_ADD - WEEK_DEL))
-
-          LT_ADD=$(jq -s '.[0].additions + .[1].additions' output/churn-public-all.json output/churn-private-all.json)
-          LT_DEL=$(jq -s '.[0].deletions + .[1].deletions' output/churn-public-all.json output/churn-private-all.json)
-
-          format_number() {
-            export LC_ALL="en_US.UTF-8"
-            printf "%'d\n" "$1"
-          }
-
-          draw_log_bar() {
-            local count=$1
-            local max=$2
-            local full=20
-            if [ "$max" -le 0 ]; then echo "····················"; return; fi
-            local ratio=$(awk -v c=$count -v m=$max 'BEGIN { if (c == 0) print 0; else print log(1 + c)/log(1 + m) }')
-            local filled=$(awk -v f=$full -v r=$ratio 'BEGIN { printf "%d", f * r }')
-            if [ "$filled" -gt "$full" ]; then filled=$full; fi
-            local empty=$((full - filled))
-            local bar=""
-            for ((i = 0; i < filled; i++));   do bar+="█"; done
-            for ((i = 0; i < empty; i++));    do bar+="·"; done
-            echo "$bar"
-          }
-
-          # emoji map (add as you like)
-          declare -A EMOJIS=( \
-            ["Java"]="☕" \
-            ["Python"]="🐍" \
-            ["JavaScript"]="💛" \
-            ["TypeScript"]="🌀" \
-            ["JSX"]="🎨" \
-            ["PHP"]="🐘" \
-            ["C#"]="🔧" \
-            ["Dart"]="🎯" \
-            ["Go"]="🐹" \
-            ["Rust"]="🦀" \
-            ["C++"]="🧩" \
-            ["C"]="⚙️" \
-          )
-
-          # Build the HTML block
-          echo "<pre><code style=\"font-family: monospace; font-size: 14px;\">" > temp_block.txt
-          echo "📊 total lines of code: $(format_number $TOTAL_LINES)" >> temp_block.txt
-          echo "🔓 public: $(format_number $PUB_TOTAL)   🔒 private: $(format_number $PRI_TOTAL)" >> temp_block.txt
-          echo "🆕 added (past 7d): $(format_number $WEEK_ADD)   🗑️ removed (past 7d): $(format_number $WEEK_DEL)   Δ net: $(format_number $WEEK_NET)" >> temp_block.txt
-          echo "📈 lifetime: +$(format_number $LT_ADD)  /  -$(format_number $LT_DEL)" >> temp_block.txt
-          echo "" >> temp_block.txt
-
-          # Collect language rows into a sortable TSV by TOTAL desc
-          : > temp_lang.tsv
-          for LANG in "${!EMOJIS[@]}"; do
-            PUB=$(jq --arg LANG "$LANG" 'if $LANG == "Python" then (.Python.code // 0 + ."Jupyter Notebook".code // 0) else .[$LANG].code // 0 end' output/cloc-public.json)
-            PRI=$(jq --arg LANG "$LANG" 'if $LANG == "Python" then (.Python.code // 0 + ."Jupyter Notebook".code // 0) else .[$LANG].code // 0 end' output/cloc-private.json)
-            TOTAL=$((PUB + PRI))
-            [[ $TOTAL -eq 0 ]] && continue
-            BAR=$(draw_log_bar $TOTAL $TOTAL_LINES)
-            LANG_LOWER=$(echo "$LANG" | tr '[:upper:]' '[:lower:]')
-            EMOJI="${EMOJIS[$LANG]}"
-            PADDED_LANG=$(printf '%-13s' "$LANG_LOWER")
-            PADDED_BAR=$(printf '%-20s' "$BAR")
-            PADDED_TOTAL=$(format_number $TOTAL)
-            printf "%09d\t%s %s %s %s\n" "$TOTAL" "$EMOJI" "$PADDED_LANG" "$PADDED_BAR" "$PADDED_TOTAL" >> temp_lang.tsv
-          done
-
-          if [ -s temp_lang.tsv ]; then
-            sort -r -n temp_lang.tsv | cut -f2- >> temp_block.txt
-          fi
-
-          echo "</code></pre>" >> temp_block.txt
-
-          # Ensure placeholders exist; if not, append them to README
-          if ! grep -q "<!-- LANGUAGES BREAKDOWN START -->" README.md; then
-            {
-              echo ""
-              echo "<!-- LANGUAGES BREAKDOWN START -->"
-              echo "<!-- LANGUAGES BREAKDOWN END -->"
-            } >> README.md
-          fi
-
-          # Replace the block between markers
-          sed -i '/<!-- LANGUAGES BREAKDOWN START -->/,/<!-- LANGUAGES BREAKDOWN END -->/{
-              //!d
-              /<!-- LANGUAGES BREAKDOWN START -->/r temp_block.txt
-          }' README.md
-
-          rm -f temp_block.txt temp_lang.tsv
-
-          git add output/cloc-*.json output/churn-*.json README.md
-          git commit -m "chore: update README with latest LOC & churn" || echo "No changes to commit"
-          git push origin HEAD
