@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.74035596847534,
-  "n_files"            : 2620,
-  "n_lines"            : 404701,
-  "files_per_second"   : 552.701108824678,
-  "lines_per_second"   : 85373.5463520824},
+  "elapsed_seconds"    : 4.70522308349609,
+  "n_files"            : 2625,
+  "n_lines"            : 405138,
+  "files_per_second"   : 557.890657556148,
+  "lines_per_second"   : 86103.8877032314},
 "Java" :{
   "nFiles": 1275,
   "blank": 22035,
@@ -22,10 +22,10 @@
   "comment": 0,
   "code": 79105},
 "TypeScript" :{
-  "nFiles": 136,
-  "blank": 1266,
-  "comment": 223,
-  "code": 13170},
+  "nFiles": 139,
+  "blank": 1286,
+  "comment": 259,
+  "code": 13418},
 "Python" :{
   "nFiles": 78,
   "blank": 2187,
@@ -86,16 +86,16 @@
   "blank": 169,
   "comment": 21,
   "code": 629},
+"YAML" :{
+  "nFiles": 18,
+  "blank": 110,
+  "comment": 52,
+  "code": 583},
 "Text" :{
   "nFiles": 45,
   "blank": 115,
   "comment": 0,
   "code": 515},
-"YAML" :{
-  "nFiles": 17,
-  "blank": 93,
-  "comment": 49,
-  "code": 491},
 "FXML" :{
   "nFiles": 4,
   "blank": 9,
@@ -117,10 +117,10 @@
   "comment": 9,
   "code": 81},
 "TOML" :{
-  "nFiles": 2,
-  "blank": 4,
-  "comment": 0,
-  "code": 28},
+  "nFiles": 3,
+  "blank": 9,
+  "comment": 1,
+  "code": 43},
 "JSON" :{
   "nFiles": 2,
   "blank": 0,
@@ -142,7 +142,7 @@
   "comment": 28,
   "code": 14},
 "SUM": {
-  "blank": 34230,
-  "comment": 39841,
-  "code": 330630,
-  "nFiles": 2620} }
+  "blank": 34272,
+  "comment": 39881,
+  "code": 330985,
+  "nFiles": 2625} }
