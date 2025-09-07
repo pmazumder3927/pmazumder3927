@@ -1,36 +1,36 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 2.93780088424683,
-  "n_files"            : 1915,
-  "n_lines"            : 387811,
-  "files_per_second"   : 651.848125674098,
-  "lines_per_second"   : 132007.244629659},
+  "elapsed_seconds"    : 2.98678302764893,
+  "n_files"            : 2009,
+  "n_lines"            : 404506,
+  "files_per_second"   : 672.630044232374,
+  "lines_per_second"   : 135432.000334624},
 "TypeScript" :{
-  "nFiles": 481,
-  "blank": 4750,
-  "comment": 2874,
-  "code": 59274},
+  "nFiles": 523,
+  "blank": 5283,
+  "comment": 3066,
+  "code": 64552},
 "Java" :{
-  "nFiles": 728,
-  "blank": 13675,
-  "comment": 9689,
-  "code": 52271},
+  "nFiles": 770,
+  "blank": 14362,
+  "comment": 10947,
+  "code": 55929},
 "Python" :{
-  "nFiles": 204,
-  "blank": 7005,
-  "comment": 6493,
-  "code": 27437},
-"JavaScript" :{
-  "nFiles": 108,
-  "blank": 925,
-  "comment": 881,
-  "code": 10513},
+  "nFiles": 207,
+  "blank": 7157,
+  "comment": 6583,
+  "code": 28007},
 "YAML" :{
-  "nFiles": 72,
-  "blank": 1727,
-  "comment": 131,
-  "code": 10439},
+  "nFiles": 75,
+  "blank": 2507,
+  "comment": 140,
+  "code": 13410},
+"JavaScript" :{
+  "nFiles": 109,
+  "blank": 928,
+  "comment": 885,
+  "code": 10546},
 "Jupyter Notebook" :{
   "nFiles": 23,
   "blank": 0,
@@ -51,6 +51,11 @@
   "blank": 196,
   "comment": 197,
   "code": 2253},
+"Gradle" :{
+  "nFiles": 32,
+  "blank": 437,
+  "comment": 396,
+  "code": 1839},
 "GraphQL" :{
   "nFiles": 31,
   "blank": 105,
@@ -61,11 +66,6 @@
   "blank": 259,
   "comment": 49,
   "code": 1559},
-"Gradle" :{
-  "nFiles": 30,
-  "blank": 380,
-  "comment": 331,
-  "code": 1518},
 "XML" :{
   "nFiles": 21,
   "blank": 4,
@@ -95,7 +95,7 @@
   "nFiles": 19,
   "blank": 52,
   "comment": 0,
-  "code": 296},
+  "code": 298},
 "TOML" :{
   "nFiles": 5,
   "blank": 17,
@@ -111,16 +111,16 @@
   "blank": 0,
   "comment": 1,
   "code": 80},
+"Dockerfile" :{
+  "nFiles": 4,
+  "blank": 33,
+  "comment": 54,
+  "code": 69},
 "Windows Resource File" :{
   "nFiles": 1,
   "blank": 23,
   "comment": 29,
   "code": 69},
-"Dockerfile" :{
-  "nFiles": 3,
-  "blank": 23,
-  "comment": 48,
-  "code": 53},
 "Swift" :{
   "nFiles": 4,
   "blank": 8,
@@ -147,7 +147,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 31268,
-  "comment": 162766,
-  "code": 193777,
-  "nFiles": 1915} }
+  "blank": 33490,
+  "comment": 164390,
+  "code": 206626,
+  "nFiles": 2009} }
