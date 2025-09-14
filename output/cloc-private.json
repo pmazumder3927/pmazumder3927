@@ -1,21 +1,21 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 2.98678302764893,
-  "n_files"            : 2009,
-  "n_lines"            : 404506,
-  "files_per_second"   : 672.630044232374,
-  "lines_per_second"   : 135432.000334624},
+  "elapsed_seconds"    : 3.09141898155212,
+  "n_files"            : 2144,
+  "n_lines"            : 424047,
+  "files_per_second"   : 693.532650473522,
+  "lines_per_second"   : 137169.048430665},
 "TypeScript" :{
-  "nFiles": 523,
-  "blank": 5283,
-  "comment": 3066,
-  "code": 64552},
+  "nFiles": 554,
+  "blank": 5875,
+  "comment": 3348,
+  "code": 71434},
 "Java" :{
-  "nFiles": 770,
-  "blank": 14362,
-  "comment": 10947,
-  "code": 55929},
+  "nFiles": 865,
+  "blank": 16237,
+  "comment": 12627,
+  "code": 63613},
 "Python" :{
   "nFiles": 207,
   "blank": 7157,
@@ -27,10 +27,10 @@
   "comment": 140,
   "code": 13410},
 "JavaScript" :{
-  "nFiles": 109,
-  "blank": 928,
-  "comment": 885,
-  "code": 10546},
+  "nFiles": 116,
+  "blank": 957,
+  "comment": 990,
+  "code": 10782},
 "Jupyter Notebook" :{
   "nFiles": 23,
   "blank": 0,
@@ -53,9 +53,9 @@
   "code": 2253},
 "Gradle" :{
   "nFiles": 32,
-  "blank": 437,
-  "comment": 396,
-  "code": 1839},
+  "blank": 435,
+  "comment": 383,
+  "code": 1757},
 "GraphQL" :{
   "nFiles": 31,
   "blank": 105,
@@ -66,16 +66,16 @@
   "blank": 259,
   "comment": 49,
   "code": 1559},
+"Bourne Shell" :{
+  "nFiles": 11,
+  "blank": 190,
+  "comment": 623,
+  "code": 830},
 "XML" :{
   "nFiles": 21,
   "blank": 4,
   "comment": 46,
   "code": 809},
-"Bourne Shell" :{
-  "nFiles": 10,
-  "blank": 162,
-  "comment": 505,
-  "code": 724},
 "DOS Batch" :{
   "nFiles": 10,
   "blank": 216,
@@ -121,6 +121,11 @@
   "blank": 23,
   "comment": 29,
   "code": 69},
+"JSON" :{
+  "nFiles": 2,
+  "blank": 0,
+  "comment": 0,
+  "code": 44},
 "Swift" :{
   "nFiles": 4,
   "blank": 8,
@@ -136,18 +141,13 @@
   "blank": 4,
   "comment": 0,
   "code": 28},
-"JSON" :{
-  "nFiles": 1,
-  "blank": 0,
-  "comment": 0,
-  "code": 23},
 "Kotlin" :{
   "nFiles": 1,
   "blank": 2,
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 33490,
-  "comment": 164390,
-  "code": 206626,
-  "nFiles": 2009} }
+  "blank": 36012,
+  "comment": 166562,
+  "code": 221473,
+  "nFiles": 2144} }
