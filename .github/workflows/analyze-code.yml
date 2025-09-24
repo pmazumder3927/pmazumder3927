@@ -2,7 +2,7 @@ name: Update LOC & Churn in Readme
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # Weekly on Sunday at midnight UTC
+    - cron: "0 0 * * *" # Weekly on Sunday at midnight UTC
   workflow_dispatch:
 
 permissions:
