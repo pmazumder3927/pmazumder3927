@@ -1,16 +1,16 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.90401101112366,
-  "n_files"            : 2720,
-  "n_lines"            : 422866,
-  "files_per_second"   : 554.648020534678,
-  "lines_per_second"   : 86228.5992100798},
+  "elapsed_seconds"    : 4.88633322715759,
+  "n_files"            : 2752,
+  "n_lines"            : 429132,
+  "files_per_second"   : 563.203504972757,
+  "lines_per_second"   : 87822.9093371981},
 "Java" :{
-  "nFiles": 1300,
-  "blank": 22442,
-  "comment": 27965,
-  "code": 102501},
+  "nFiles": 1330,
+  "blank": 23378,
+  "comment": 29215,
+  "code": 106447},
 "JavaScript" :{
   "nFiles": 75,
   "blank": 3964,
@@ -52,10 +52,10 @@
   "comment": 67,
   "code": 2660},
 "Gradle" :{
-  "nFiles": 55,
-  "blank": 555,
-  "comment": 705,
-  "code": 2449},
+  "nFiles": 57,
+  "blank": 577,
+  "comment": 725,
+  "code": 2541},
 "Jupyter Notebook" :{
   "nFiles": 11,
   "blank": 0,
@@ -142,7 +142,7 @@
   "comment": 28,
   "code": 14},
 "SUM": {
-  "blank": 35795,
-  "comment": 41185,
-  "code": 345886,
-  "nFiles": 2720} }
+  "blank": 36753,
+  "comment": 42455,
+  "code": 349924,
+  "nFiles": 2752} }
