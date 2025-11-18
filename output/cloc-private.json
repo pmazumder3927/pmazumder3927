@@ -1,11 +1,16 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 3.16899800300598,
-  "n_files"            : 2142,
-  "n_lines"            : 422730,
-  "files_per_second"   : 675.92343004577,
-  "lines_per_second"   : 133395.476929621},
+  "elapsed_seconds"    : 3.41094207763672,
+  "n_files"            : 2468,
+  "n_lines"            : 524462,
+  "files_per_second"   : 723.553770139058,
+  "lines_per_second"   : 153758.694244194},
+"JavaScript" :{
+  "nFiles": 404,
+  "blank": 14248,
+  "comment": 8186,
+  "code": 87608},
 "Java" :{
   "nFiles": 898,
   "blank": 16972,
@@ -17,20 +22,15 @@
   "comment": 3091,
   "code": 65038},
 "Python" :{
-  "nFiles": 210,
-  "blank": 7235,
-  "comment": 6652,
-  "code": 28381},
+  "nFiles": 218,
+  "blank": 7658,
+  "comment": 7021,
+  "code": 29951},
 "YAML" :{
-  "nFiles": 75,
-  "blank": 2507,
+  "nFiles": 76,
+  "blank": 2508,
   "comment": 140,
-  "code": 13410},
-"JavaScript" :{
-  "nFiles": 109,
-  "blank": 928,
-  "comment": 885,
-  "code": 10546},
+  "code": 13428},
 "Jupyter Notebook" :{
   "nFiles": 23,
   "blank": 0,
@@ -47,10 +47,10 @@
   "comment": 389,
   "code": 6428},
 "SQL" :{
-  "nFiles": 21,
-  "blank": 196,
-  "comment": 197,
-  "code": 2253},
+  "nFiles": 35,
+  "blank": 334,
+  "comment": 385,
+  "code": 3006},
 "Gradle" :{
   "nFiles": 33,
   "blank": 464,
@@ -67,10 +67,10 @@
   "comment": 49,
   "code": 1559},
 "Bourne Shell" :{
-  "nFiles": 11,
-  "blank": 190,
-  "comment": 623,
-  "code": 830},
+  "nFiles": 12,
+  "blank": 200,
+  "comment": 629,
+  "code": 867},
 "XML" :{
   "nFiles": 21,
   "blank": 4,
@@ -81,6 +81,11 @@
   "blank": 216,
   "comment": 20,
   "code": 696},
+"Text" :{
+  "nFiles": 23,
+  "blank": 134,
+  "comment": 0,
+  "code": 681},
 "C++" :{
   "nFiles": 8,
   "blank": 105,
@@ -91,31 +96,26 @@
   "blank": 76,
   "comment": 106,
   "code": 327},
-"Text" :{
-  "nFiles": 19,
-  "blank": 52,
-  "comment": 0,
-  "code": 298},
 "TOML" :{
-  "nFiles": 5,
-  "blank": 17,
+  "nFiles": 6,
+  "blank": 21,
   "comment": 0,
-  "code": 113},
+  "code": 123},
 "C/C++ Header" :{
   "nFiles": 8,
   "blank": 49,
   "comment": 63,
   "code": 103},
+"Dockerfile" :{
+  "nFiles": 6,
+  "blank": 48,
+  "comment": 69,
+  "code": 96},
 "Properties" :{
   "nFiles": 14,
   "blank": 0,
   "comment": 1,
   "code": 80},
-"Dockerfile" :{
-  "nFiles": 4,
-  "blank": 33,
-  "comment": 54,
-  "code": 69},
 "Windows Resource File" :{
   "nFiles": 1,
   "blank": 23,
@@ -147,7 +147,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 36306,
-  "comment": 167379,
-  "code": 219045,
-  "nFiles": 2142} }
+  "blank": 50299,
+  "comment": 175258,
+  "code": 298905,
+  "nFiles": 2468} }
