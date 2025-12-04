@@ -1,36 +1,36 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 3.58670806884766,
-  "n_files"            : 2650,
-  "n_lines"            : 566175,
-  "files_per_second"   : 738.839054958659,
-  "lines_per_second"   : 157853.661109894},
+  "elapsed_seconds"    : 3.6020770072937,
+  "n_files"            : 2664,
+  "n_lines"            : 570267,
+  "files_per_second"   : 739.573305791568,
+  "lines_per_second"   : 158316.16005024},
 "JavaScript" :{
   "nFiles": 420,
   "blank": 14916,
   "comment": 8996,
   "code": 91650},
 "TypeScript" :{
-  "nFiles": 643,
-  "blank": 6912,
-  "comment": 4254,
-  "code": 80237},
+  "nFiles": 654,
+  "blank": 7250,
+  "comment": 4563,
+  "code": 83011},
 "Java" :{
   "nFiles": 898,
   "blank": 16972,
   "comment": 13704,
   "code": 67301},
 "Python" :{
-  "nFiles": 248,
-  "blank": 9158,
-  "comment": 8856,
-  "code": 35953},
+  "nFiles": 249,
+  "blank": 9224,
+  "comment": 8885,
+  "code": 36384},
 "YAML" :{
   "nFiles": 78,
-  "blank": 4090,
+  "blank": 4116,
   "comment": 140,
-  "code": 19562},
+  "code": 19651},
 "Jupyter Notebook" :{
   "nFiles": 23,
   "blank": 0,
@@ -97,20 +97,20 @@
   "comment": 106,
   "code": 327},
 "TOML" :{
-  "nFiles": 7,
-  "blank": 22,
+  "nFiles": 8,
+  "blank": 23,
   "comment": 0,
-  "code": 129},
+  "code": 137},
+"Dockerfile" :{
+  "nFiles": 7,
+  "blank": 54,
+  "comment": 74,
+  "code": 106},
 "C/C++ Header" :{
   "nFiles": 8,
   "blank": 49,
   "comment": 63,
   "code": 103},
-"Dockerfile" :{
-  "nFiles": 6,
-  "blank": 48,
-  "comment": 69,
-  "code": 96},
 "Properties" :{
   "nFiles": 14,
   "blank": 0,
@@ -147,7 +147,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 55817,
-  "comment": 179219,
-  "code": 331139,
-  "nFiles": 2650} }
+  "blank": 56254,
+  "comment": 179562,
+  "code": 334451,
+  "nFiles": 2664} }
