@@ -3,7 +3,7 @@ https://pramit.gg
 <pre><code style="font-family: monospace; font-size: 14px;">
 📊 total lines of code: 709,631
 🔓 public: 352,343   🔒 private: 357,288
-🆕 added (past 7d): 15,663   🗑️ removed (past 7d): 1,811   Δ net: 13,852
+🆕 added (past 7d): 13,770   🗑️ removed (past 7d): 1,689   Δ net: 12,081
 📈 lifetime: +47,236,110  /  -11,864,589
 
 💛 javascript    ██████████████████·· 201,894
