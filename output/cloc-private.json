@@ -1,36 +1,36 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 3.69997596740723,
-  "n_files"            : 2737,
-  "n_lines"            : 600690,
-  "files_per_second"   : 739.734534524008,
-  "lines_per_second"   : 162349.70315792},
+  "elapsed_seconds"    : 3.72162199020386,
+  "n_files"            : 2781,
+  "n_lines"            : 614280,
+  "files_per_second"   : 747.254827954106,
+  "lines_per_second"   : 165057.064263088},
 "JavaScript" :{
-  "nFiles": 454,
-  "blank": 16901,
-  "comment": 10704,
-  "code": 104461},
+  "nFiles": 457,
+  "blank": 16999,
+  "comment": 10849,
+  "code": 105206},
 "TypeScript" :{
-  "nFiles": 667,
-  "blank": 7643,
-  "comment": 4940,
-  "code": 86164},
+  "nFiles": 701,
+  "blank": 8093,
+  "comment": 5103,
+  "code": 90674},
 "Java" :{
   "nFiles": 898,
   "blank": 16972,
   "comment": 13704,
   "code": 67301},
 "Python" :{
-  "nFiles": 254,
-  "blank": 9731,
-  "comment": 9655,
-  "code": 38638},
+  "nFiles": 256,
+  "blank": 9850,
+  "comment": 9731,
+  "code": 39128},
 "YAML" :{
-  "nFiles": 78,
-  "blank": 4116,
+  "nFiles": 80,
+  "blank": 5365,
   "comment": 140,
-  "code": 19657},
+  "code": 25166},
 "Jupyter Notebook" :{
   "nFiles": 23,
   "blank": 0,
@@ -47,10 +47,10 @@
   "comment": 389,
   "code": 6428},
 "Text" :{
-  "nFiles": 33,
+  "nFiles": 34,
   "blank": 979,
   "comment": 0,
-  "code": 6018},
+  "code": 6024},
 "SQL" :{
   "nFiles": 50,
   "blank": 464,
@@ -73,7 +73,7 @@
   "code": 1559},
 "Bourne Shell" :{
   "nFiles": 20,
-  "blank": 300,
+  "blank": 303,
   "comment": 684,
   "code": 1206},
 "XML" :{
@@ -97,15 +97,15 @@
   "comment": 106,
   "code": 327},
 "TOML" :{
-  "nFiles": 8,
-  "blank": 23,
+  "nFiles": 9,
+  "blank": 24,
   "comment": 0,
-  "code": 137},
+  "code": 153},
 "Dockerfile" :{
-  "nFiles": 8,
-  "blank": 62,
+  "nFiles": 9,
+  "blank": 66,
   "comment": 81,
-  "code": 128},
+  "code": 134},
 "C/C++ Header" :{
   "nFiles": 8,
   "blank": 49,
@@ -147,7 +147,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 60011,
-  "comment": 182553,
-  "code": 358126,
-  "nFiles": 2737} }
+  "blank": 61935,
+  "comment": 182937,
+  "code": 369408,
+  "nFiles": 2781} }
