@@ -17,4 +17,7 @@ https://pramit.gg
 🧩 c++           ████████············ 396
 </code></pre>
  <!-- LANGUAGES BREAKDOWN END -->
-more raccoon steganography coming soon
+
+raccoon of the day: 
+
+<img width="64" height="64" alt="image" src="https://github.com/pmazumder3927/pmazumder3927/blob/main/raccoon.png?raw=true" />
