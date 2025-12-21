@@ -1,0 +1,20 @@
+# Training data and outputs (separate repo)
+raccoon_data/
+output_model/
+raccoon-diffusion/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store

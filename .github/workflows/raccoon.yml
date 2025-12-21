@@ -6,35 +6,59 @@ on:
   workflow_dispatch:      # Allows manual triggering
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history for commit-based seeding
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.11'
+          cache: 'pip'
 
       - name: Install Dependencies
         run: |
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
           pip install pillow requests
 
-      - name: Set Environment Variables
+      - name: Download Model from Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "GITHUB_USERNAME=${GITHUB_ACTOR}" >> $GITHUB_ENV
+          mkdir -p output_model
+          # Download the model from the latest release
+          gh release download --pattern 'raccoon_model.pt' --dir output_model || {
+            echo "No model found in releases. Please upload raccoon_model.pt to a release."
+            exit 1
+          }
 
       - name: Generate Raccoon Image
         env:
-          GITHUB_USERNAME: ${{ env.GITHUB_USERNAME }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODEL_PATH: ./output_model/raccoon_model.pt
+          OUTPUT_PATH: ./raccoon.png
         run: python generate_raccoon.py
 
+      - name: Update README with raccoon
+        run: |
+          # Check if raccoon image marker exists, if not add it
+          if ! grep -q "RACCOON_IMAGE" README.md; then
+            echo "" >> README.md
+            echo "<!-- RACCOON_IMAGE -->" >> README.md
+            echo "![Daily Raccoon](./raccoon.png)" >> README.md
+            echo "<!-- /RACCOON_IMAGE -->" >> README.md
+          fi
+
       - name: Commit and Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update raccoon image based on contributions
+          commit_message: "🦝 Update daily raccoon (seed: ${{ github.run_id }})"
           file_pattern: |
             raccoon.png
+            README.md
