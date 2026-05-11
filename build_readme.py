@@ -412,7 +412,9 @@ def build_block() -> str:
         # Strip the branch suffix the clone step appends (e.g. "FRC-2023-main"
         # -> "FRC-2023") so the displayed label is the repo, not the dir name.
         repo_short = re.sub(r"-(?:main|master|develop|trunk|dev)$", "", repo_name)
-        mt_label = trim_path(f"{repo_short}/{path}", limit=44)
+        # Always keep the repo prefix visible; trim only the in-repo path.
+        path_budget = max(16, 44 - len(repo_short) - 1)
+        mt_label = f"{repo_short}/{trim_path(path, limit=path_budget)}"
     else:
         mt_label, mt_count = "—", 0
 
