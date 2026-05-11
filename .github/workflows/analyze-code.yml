@@ -71,17 +71,20 @@ jobs:
 
               if [ -d "$DIR_NAME/.git" ]; then
                 # Update in place; rewrite remote URL in case the PAT rotated.
+                # Fetch all branches so feature work that never merged is still counted.
                 if ! ( cd "$DIR_NAME" \
                        && git remote set-url origin "$REPO_URL" \
-                       && git fetch --quiet --prune --tags origin "$DEFAULT_BRANCH" \
+                       && git fetch --quiet --prune origin '+refs/heads/*:refs/remotes/origin/*' \
                        && git reset --hard --quiet "origin/$DEFAULT_BRANCH" ); then
                   echo "Update failed for $REPO; recloning."
                   rm -rf "$DIR_NAME"
-                  git clone --quiet --branch "$DEFAULT_BRANCH" --single-branch "$REPO_URL" "$DIR_NAME" \
+                  git clone --quiet "$REPO_URL" "$DIR_NAME" \
                     || echo "Failed to clone $REPO."
                 fi
               else
-                git clone --quiet --branch "$DEFAULT_BRANCH" --single-branch "$REPO_URL" "$DIR_NAME" \
+                # Clone all branches (no --single-branch) so feature/abandoned
+                # branches are included in commit walks via git log --all.
+                git clone --quiet "$REPO_URL" "$DIR_NAME" \
                   || echo "Failed to clone $REPO."
               fi
             done
@@ -147,7 +150,7 @@ jobs:
               BR=$(git rev-parse --abbrev-ref HEAD)
               git fetch --quiet origin "$BR" || true
 
-              declare -a ARGS=(--no-merges --numstat --format=%H)
+              declare -a ARGS=(--all --no-merges --numstat --format=%H)
               [ -n "$since" ] && ARGS+=(--since="$since")
               [ -n "$author" ] && ARGS+=(--author="$author")
 

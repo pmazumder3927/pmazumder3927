@@ -122,11 +122,15 @@ def all_repos() -> list[Path]:
 
 
 def git_log(repo: Path, *args: str, author: str | None = None) -> str:
-    cmd = ["git", "-C", str(repo), "log", "--no-merges", *args]
+    # --all: walk every ref (local heads + remote-tracking branches), so feature
+    # branches that never merged into the default branch are still counted.
+    # Git deduplicates by SHA so commits reachable from multiple refs aren't
+    # double-counted.
+    cmd = ["git", "-C", str(repo), "log", "--all", "--no-merges", *args]
     if author:
         cmd.append(f"--author={author}")
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, check=False, timeout=180)
+        result = subprocess.run(cmd, capture_output=True, text=True, check=False, timeout=600)
         return result.stdout
     except (subprocess.TimeoutExpired, OSError):
         return ""
