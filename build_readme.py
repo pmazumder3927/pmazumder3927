@@ -155,12 +155,16 @@ def collect(repos: list[Path], author: str | None):
     times: list[datetime] = []
     msgs: list[str] = []
     files_per_commit: list[int] = []
-    file_touches: Counter[str] = Counter()  # file path -> # commits
+    # Key by (repo_basename, path) so files with the same path in different
+    # repos (e.g. FRC RobotContainer.java across yearly robot repos) don't
+    # collide and inflate a single count.
+    file_touches: Counter[tuple[str, str]] = Counter()
     recent_lang_commits: Counter[str] = Counter()  # lang -> # recent commits touching it
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=RECENT_DAYS)
 
     for repo in repos:
+        repo_name = repo.name
         meta = git_log(repo, "--format=%H%x09%cI%x09%an%x09%ae%x09%s", author=author)
         for line in meta.splitlines():
             parts = line.split("\t", 4)
@@ -219,7 +223,7 @@ def collect(repos: list[Path], author: str | None):
             if EXCLUDE_PATH.search(fp):
                 continue
             per += 1
-            file_touches[fp] += 1
+            file_touches[(repo_name, fp)] += 1
             lang = file_lang(fp)
             if lang:
                 commit_langs.add(lang)
@@ -404,8 +408,11 @@ def build_block() -> str:
 
     active, total_repos, dormant, abandoned = repo_status(repos, author)
     if file_touches:
-        path, mt_count = file_touches.most_common(1)[0]
-        mt_label = trim_path(path)
+        (repo_name, path), mt_count = file_touches.most_common(1)[0]
+        # Strip the branch suffix the clone step appends (e.g. "FRC-2023-main"
+        # -> "FRC-2023") so the displayed label is the repo, not the dir name.
+        repo_short = re.sub(r"-(?:main|master|develop|trunk|dev)$", "", repo_name)
+        mt_label = trim_path(f"{repo_short}/{path}", limit=44)
     else:
         mt_label, mt_count = "—", 0
 
