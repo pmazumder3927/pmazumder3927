@@ -160,5 +160,15 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add output/cloc-*.json output/churn-*.json README.md
-          git commit -m "chore: refresh telemetry" || echo "No changes to commit"
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: refresh telemetry"
+          # Race-tolerant push: rebase on top of any concurrent raccoon update.
+          for attempt in 1 2 3; do
+            if git push origin HEAD; then exit 0; fi
+            echo "push rejected, rebasing on origin/main (attempt $attempt)"
+            git pull --rebase origin main
+          done
           git push origin HEAD
