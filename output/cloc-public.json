@@ -1,0 +1,153 @@
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.98",
+  "elapsed_seconds"    : 5.39903116226196,
+  "n_files"            : 3250,
+  "n_lines"            : 525973,
+  "files_per_second"   : 601.959852115095,
+  "lines_per_second"   : 97419.8859373947},
+"Java" :{
+  "nFiles": 1552,
+  "blank": 28561,
+  "comment": 36497,
+  "code": 134773},
+"JavaScript" :{
+  "nFiles": 76,
+  "blank": 3982,
+  "comment": 3234,
+  "code": 98399},
+"Unity-Prefab" :{
+  "nFiles": 525,
+  "blank": 0,
+  "comment": 0,
+  "code": 79105},
+"TypeScript" :{
+  "nFiles": 331,
+  "blank": 5409,
+  "comment": 1314,
+  "code": 54867},
+"Python" :{
+  "nFiles": 163,
+  "blank": 4947,
+  "comment": 4382,
+  "code": 21110},
+"C#" :{
+  "nFiles": 135,
+  "blank": 1772,
+  "comment": 538,
+  "code": 9156},
+"HLSL" :{
+  "nFiles": 66,
+  "blank": 936,
+  "comment": 553,
+  "code": 4908},
+"XML" :{
+  "nFiles": 102,
+  "blank": 1,
+  "comment": 0,
+  "code": 3392},
+"Gradle" :{
+  "nFiles": 60,
+  "blank": 651,
+  "comment": 786,
+  "code": 2868},
+"PHP" :{
+  "nFiles": 18,
+  "blank": 321,
+  "comment": 67,
+  "code": 2660},
+"YAML" :{
+  "nFiles": 40,
+  "blank": 296,
+  "comment": 83,
+  "code": 2400},
+"Jupyter Notebook" :{
+  "nFiles": 12,
+  "blank": 0,
+  "comment": 4686,
+  "code": 1919},
+"TeX" :{
+  "nFiles": 2,
+  "blank": 223,
+  "comment": 97,
+  "code": 1351},
+"Text" :{
+  "nFiles": 55,
+  "blank": 174,
+  "comment": 0,
+  "code": 1128},
+"Bourne Shell" :{
+  "nFiles": 11,
+  "blank": 272,
+  "comment": 665,
+  "code": 1090},
+"DOS Batch" :{
+  "nFiles": 18,
+  "blank": 358,
+  "comment": 32,
+  "code": 1066},
+"C++" :{
+  "nFiles": 4,
+  "blank": 217,
+  "comment": 123,
+  "code": 871},
+"MSBuild script" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 7,
+  "code": 668},
+"C" :{
+  "nFiles": 13,
+  "blank": 169,
+  "comment": 21,
+  "code": 629},
+"C/C++ Header" :{
+  "nFiles": 19,
+  "blank": 188,
+  "comment": 85,
+  "code": 624},
+"FXML" :{
+  "nFiles": 4,
+  "blank": 9,
+  "comment": 0,
+  "code": 441},
+"TOML" :{
+  "nFiles": 9,
+  "blank": 34,
+  "comment": 3,
+  "code": 260},
+"INI" :{
+  "nFiles": 7,
+  "blank": 42,
+  "comment": 142,
+  "code": 166},
+"Properties" :{
+  "nFiles": 20,
+  "blank": 0,
+  "comment": 9,
+  "code": 88},
+"JSON" :{
+  "nFiles": 3,
+  "blank": 0,
+  "comment": 0,
+  "code": 44},
+"Visual Studio Solution" :{
+  "nFiles": 1,
+  "blank": 1,
+  "comment": 1,
+  "code": 18},
+"Markdown" :{
+  "nFiles": 1,
+  "blank": 8,
+  "comment": 0,
+  "code": 16},
+"Ant" :{
+  "nFiles": 2,
+  "blank": 18,
+  "comment": 28,
+  "code": 14},
+"SUM": {
+  "blank": 48589,
+  "comment": 53353,
+  "code": 424031,
+  "nFiles": 3250} }

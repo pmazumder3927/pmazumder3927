@@ -1,0 +1,163 @@
+{"header" : {
+  "cloc_url"           : "github.com/AlDanial/cloc",
+  "cloc_version"       : "1.98",
+  "elapsed_seconds"    : 3.94440817832947,
+  "n_files"            : 2852,
+  "n_lines"            : 601824,
+  "files_per_second"   : 723.048901396375,
+  "lines_per_second"   : 152576.501414436},
+"Java" :{
+  "nFiles": 1133,
+  "blank": 21888,
+  "comment": 19557,
+  "code": 92368},
+"Python" :{
+  "nFiles": 449,
+  "blank": 18566,
+  "comment": 20475,
+  "code": 82261},
+"TypeScript" :{
+  "nFiles": 627,
+  "blank": 6492,
+  "comment": 3999,
+  "code": 78164},
+"Svelte" :{
+  "nFiles": 44,
+  "blank": 2811,
+  "comment": 47,
+  "code": 28451},
+"YAML" :{
+  "nFiles": 97,
+  "blank": 3862,
+  "comment": 364,
+  "code": 19532},
+"JavaScript" :{
+  "nFiles": 148,
+  "blank": 1857,
+  "comment": 1962,
+  "code": 16148},
+"Jupyter Notebook" :{
+  "nFiles": 21,
+  "blank": 0,
+  "comment": 139477,
+  "code": 8964},
+"PHP" :{
+  "nFiles": 32,
+  "blank": 1086,
+  "comment": 431,
+  "code": 7439},
+"Dart" :{
+  "nFiles": 68,
+  "blank": 399,
+  "comment": 389,
+  "code": 6428},
+"SQL" :{
+  "nFiles": 28,
+  "blank": 395,
+  "comment": 453,
+  "code": 4123},
+"Gradle" :{
+  "nFiles": 36,
+  "blank": 520,
+  "comment": 465,
+  "code": 2148},
+"GraphQL" :{
+  "nFiles": 31,
+  "blank": 105,
+  "comment": 0,
+  "code": 1628},
+"TeX" :{
+  "nFiles": 1,
+  "blank": 213,
+  "comment": 1,
+  "code": 1215},
+"Bourne Shell" :{
+  "nFiles": 19,
+  "blank": 269,
+  "comment": 764,
+  "code": 1213},
+"DOS Batch" :{
+  "nFiles": 11,
+  "blank": 245,
+  "comment": 24,
+  "code": 853},
+"XML" :{
+  "nFiles": 21,
+  "blank": 4,
+  "comment": 46,
+  "code": 809},
+"Text" :{
+  "nFiles": 23,
+  "blank": 54,
+  "comment": 0,
+  "code": 630},
+"C++" :{
+  "nFiles": 8,
+  "blank": 105,
+  "comment": 44,
+  "code": 396},
+"CMake" :{
+  "nFiles": 7,
+  "blank": 76,
+  "comment": 106,
+  "code": 327},
+"TOML" :{
+  "nFiles": 8,
+  "blank": 47,
+  "comment": 17,
+  "code": 242},
+"C/C++ Header" :{
+  "nFiles": 8,
+  "blank": 49,
+  "comment": 63,
+  "code": 103},
+"Dockerfile" :{
+  "nFiles": 7,
+  "blank": 52,
+  "comment": 62,
+  "code": 102},
+"Properties" :{
+  "nFiles": 14,
+  "blank": 0,
+  "comment": 1,
+  "code": 80},
+"Windows Resource File" :{
+  "nFiles": 1,
+  "blank": 23,
+  "comment": 29,
+  "code": 69},
+"Swift" :{
+  "nFiles": 4,
+  "blank": 8,
+  "comment": 3,
+  "code": 44},
+"Arduino Sketch" :{
+  "nFiles": 1,
+  "blank": 20,
+  "comment": 7,
+  "code": 40},
+"INI" :{
+  "nFiles": 2,
+  "blank": 4,
+  "comment": 0,
+  "code": 28},
+"make" :{
+  "nFiles": 1,
+  "blank": 14,
+  "comment": 13,
+  "code": 27},
+"JSON" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 0,
+  "code": 23},
+"Kotlin" :{
+  "nFiles": 1,
+  "blank": 2,
+  "comment": 0,
+  "code": 4},
+"SUM": {
+  "blank": 59166,
+  "comment": 188799,
+  "code": 353859,
+  "nFiles": 2852} }
