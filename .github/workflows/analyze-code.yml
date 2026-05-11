@@ -187,6 +187,7 @@ jobs:
         shell: bash
         env:
           AUTHOR_FILTER: ${{ secrets.AUTHOR_FILTER }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
         run: python3 build_readme.py
 
       - name: Commit and push

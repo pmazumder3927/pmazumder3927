@@ -76,6 +76,27 @@ def is_bot(name: str, email: str) -> bool:
     return bool(BOT_NAME_RE.search(name) or BOT_EMAIL_RE.search(email))
 
 
+def owner_filter() -> re.Pattern[str] | None:
+    """Return a compiled regex that an author name OR email must match for the
+    commit to count as the profile owner's. AUTHOR_FILTER (env) wins when set;
+    otherwise we default to GITHUB_REPOSITORY_OWNER as a case-insensitive
+    substring (covers commits authored from the GitHub web UI as well as the
+    user's git config). Returns None to mean "match everything"."""
+    explicit = os.getenv("AUTHOR_FILTER")
+    if explicit:
+        return re.compile(explicit, re.IGNORECASE)
+    owner = os.getenv("GITHUB_REPOSITORY_OWNER")
+    if owner:
+        return re.compile(re.escape(owner), re.IGNORECASE)
+    return None
+
+
+def is_owner(name: str, email: str, pattern: re.Pattern[str] | None) -> bool:
+    if pattern is None:
+        return True
+    return bool(pattern.search(name) or pattern.search(email))
+
+
 def fmt_int(n: int) -> str:
     return f"{n:,}"
 
@@ -162,6 +183,7 @@ def collect(repos: list[Path], author: str | None):
     recent_lang_commits: Counter[str] = Counter()  # lang -> # recent commits touching it
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=RECENT_DAYS)
+    owner = owner_filter()
 
     for repo in repos:
         repo_name = repo.name
@@ -171,7 +193,7 @@ def collect(repos: list[Path], author: str | None):
             if len(parts) < 5:
                 continue
             _, ci, an, ae, subject = parts
-            if is_bot(an, ae):
+            if is_bot(an, ae) or not is_owner(an, ae, owner):
                 continue
             d = parse_iso(ci)
             if d is None:
@@ -206,7 +228,7 @@ def collect(repos: list[Path], author: str | None):
                 ts = hp[1] if len(hp) > 1 else ""
                 an = hp[2] if len(hp) > 2 else ""
                 ae = hp[3] if len(hp) > 3 else ""
-                skip = is_bot(an, ae)
+                skip = is_bot(an, ae) or not is_owner(an, ae, owner)
                 d = parse_iso(ts)
                 if d and d.tzinfo is None:
                     d = d.replace(tzinfo=timezone.utc)
@@ -303,12 +325,13 @@ def repo_status(repos: list[Path], author: str | None) -> tuple[int, int, int, i
     now = datetime.now(timezone.utc)
     active = dormant = abandoned = 0
     counted = 0
+    owner = owner_filter()
     for repo in repos:
         out = git_log(repo, "--format=%cI%x09%an%x09%ae", author=author)
         dates = []
         for line in out.splitlines():
             parts = line.split("\t", 2)
-            if len(parts) < 3 or is_bot(parts[1], parts[2]):
+            if len(parts) < 3 or is_bot(parts[1], parts[2]) or not is_owner(parts[1], parts[2], owner):
                 continue
             d = parse_iso(parts[0])
             if d is not None:
