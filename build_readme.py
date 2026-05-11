@@ -61,9 +61,13 @@ EXT_TO_LANG: dict[str, str] = {
 }
 
 EXCLUDE_PATH = re.compile(
-    r"(?:^|/)(?:Library|Temp|obj|Build|build|node_modules|vendor|dist|\.git)(?:/|$)"
-    r"|\.(?:json|html|css|svg|md|ps1|scss|csv|prefab|unity|asset|meta|lock|min\.js)$"
+    r"(?:^|/)(?:Library|Temp|obj|Build|build|node_modules|vendor|dist|\.git"
+    r"|generated|__generated__|__pycache__|\.next|\.nuxt|target|out|coverage)(?:/|$)"
+    r"|\.(?:json|html|css|svg|md|ps1|scss|csv|prefab|unity|asset|meta|lock|min\.js|map)$"
     r"|(?:^|/)(?:package-lock\.json|yarn\.lock|pnpm-lock\.yaml|Cargo\.lock|poetry\.lock|Gemfile\.lock|go\.sum)$"
+    r"|\.(?:generated|gen)\.[a-z]+$"     # foo.generated.ts, bar.gen.go
+    r"|\.pb\.(?:go|cc|h|py)$"             # protobuf
+    r"|\.(?:g|freezed|gr)\.dart$"         # dart codegen
 )
 
 VERB_STOPWORDS = {"the", "a", "an", "and", "or", "of", "to", "for", "in", "on", "with"}
