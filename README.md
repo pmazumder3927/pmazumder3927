@@ -4,12 +4,12 @@
 <pre><code style="font-family: monospace; font-size: 14px;">
 2026-05-11 · telemetry
 
-  output        778,503 loc             public 55% · private 45%
-  past 7d       +26,750 / -15,172       net +11,578
+  output        778,507 loc             public 55% · private 45%
+  past 7d       +26,756 / -15,174       net +11,582
   lifetime      +45.3M / -5.9M
 
   recent focus (90d, by commits touching that language)
-  py      ████████████████████    249
+  py      ████████████████████    250
   svelte  ████████████████····     77
   tsx     ██████████████······     52
   ts      ██████████████······     44
@@ -26,7 +26,7 @@
 
   active repos  9 of 68                 57 dormant ≥30d
   abandoned     17                      inits without follow-through
-  most-touched  fearsha-frontend/generated/.../graphql.tsx (68×)
+  most-touched  smeecher/server/src/graph/server.py (42×)
   favorite verb "update"                runner up: "added"
 </code></pre>
 <!-- TELEMETRY END -->
