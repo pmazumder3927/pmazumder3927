@@ -26,12 +26,23 @@ jobs:
           sudo apt-get install -y jq cloc locales curl
           sudo locale-gen en_US.UTF-8
 
-      - name: Fetch and Clone Repositories
+      - name: Restore repos cache
+        id: cache-repos
+        uses: actions/cache@v4
+        with:
+          path: repos
+          key: repos-${{ github.run_id }}
+          restore-keys: repos-
+
+      - name: Fetch or update repositories
         shell: bash
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           set -euo pipefail
+
+          rm -rf output
+          mkdir -p repos/public repos/private output
 
           get_repos() {
             local visibility=$1
@@ -45,29 +56,51 @@ jobs:
             done
           }
 
-          rm -rf repos output || true
-          mkdir -p repos/public repos/private output
+          sync_visibility() {
+            local visibility=$1
+            pushd "repos/$visibility" >/dev/null
+            declare -A want=()
 
-          # Private
-          pushd repos/private >/dev/null
-          for REPO in $(get_repos private); do
-            REPO_URL="https://github.com/${REPO}.git"
-            AUTH_REPO=$(echo "$REPO_URL" | sed "s|https://|https://${GH_PAT}@|g")
-            DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/${REPO}" | jq -r '.default_branch')
-            # full history, single branch
-            git clone --branch "$DEFAULT_BRANCH" --single-branch "$AUTH_REPO" "$(basename "$REPO")-$DEFAULT_BRANCH" || echo "Failed to clone $REPO."
-          done
-          popd >/dev/null
+            for REPO in $(get_repos "$visibility"); do
+              local DEFAULT_BRANCH DIR_NAME REPO_URL
+              DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/${REPO}" | jq -r '.default_branch')
+              [ -z "$DEFAULT_BRANCH" ] || [ "$DEFAULT_BRANCH" = "null" ] && continue
+              DIR_NAME="$(basename "$REPO")-$DEFAULT_BRANCH"
+              REPO_URL="https://${GH_PAT}@github.com/${REPO}.git"
+              want["$DIR_NAME"]=1
 
-          # Public
-          pushd repos/public >/dev/null
-          for REPO in $(get_repos public); do
-            REPO_URL="https://github.com/${REPO}.git"
-            AUTH_REPO=$(echo "$REPO_URL" | sed "s|https://|https://${GH_PAT}@|g")
-            DEFAULT_BRANCH=$(curl -H "Authorization: token $GH_PAT" -s "https://api.github.com/repos/${REPO}" | jq -r '.default_branch')
-            git clone --branch "$DEFAULT_BRANCH" --single-branch "$AUTH_REPO" "$(basename "$REPO")-$DEFAULT_BRANCH" || echo "Failed to clone $REPO."
-          done
-          popd >/dev/null
+              if [ -d "$DIR_NAME/.git" ]; then
+                # Update in place; rewrite remote URL in case the PAT rotated.
+                if ! ( cd "$DIR_NAME" \
+                       && git remote set-url origin "$REPO_URL" \
+                       && git fetch --quiet --prune --tags origin "$DEFAULT_BRANCH" \
+                       && git reset --hard --quiet "origin/$DEFAULT_BRANCH" ); then
+                  echo "Update failed for $REPO; recloning."
+                  rm -rf "$DIR_NAME"
+                  git clone --quiet --branch "$DEFAULT_BRANCH" --single-branch "$REPO_URL" "$DIR_NAME" \
+                    || echo "Failed to clone $REPO."
+                fi
+              else
+                git clone --quiet --branch "$DEFAULT_BRANCH" --single-branch "$REPO_URL" "$DIR_NAME" \
+                  || echo "Failed to clone $REPO."
+              fi
+            done
+
+            # Drop cached clones for repos that no longer exist (deleted, renamed,
+            # visibility-flipped, or default-branch changed).
+            for d in */; do
+              d="${d%/}"
+              [ -z "${want[$d]:-}" ] && { echo "Pruning stale clone: $d"; rm -rf "$d"; }
+            done
+            popd >/dev/null
+          }
+
+          sync_visibility public
+          sync_visibility private
+
+          # Scrub PATs from on-disk remote URLs before the cache step saves repos/.
+          find repos -type f -name config -path '*/.git/*' -print0 \
+            | xargs -0 -r sed -i -E 's#https://[^@/]+@github\.com/#https://github.com/#g' || true
 
       - name: Count LOC snapshots (public/private)
         shell: bash
