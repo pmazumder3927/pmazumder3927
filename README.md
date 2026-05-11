@@ -4,12 +4,12 @@
 <pre><code style="font-family: monospace; font-size: 14px;">
 2026-05-11 · telemetry
 
-  output        777,919 loc             public 55% · private 45%
-  past 7d       +25,615 / -15,076       net +10,539
+  output        777,920 loc             public 55% · private 45%
+  past 7d       +25,618 / -15,077       net +10,541
   lifetime      +45.3M / -5.9M
 
   recent focus (90d, by commits touching that language)
-  py      ████████████████████    244
+  py      ████████████████████    245
   java    ███████████████████·    198
   svelte  ████████████████····     77
   tsx     ██████████████······     52
@@ -26,7 +26,7 @@
 
   active repos  8 of 133                120 dormant ≥30d
   abandoned     28                      inits without follow-through
-  most-touched  frc2023/robot/.../RobotContainer.java (218×)
+  most-touched  2023-ChargedUp-AV7/.../RobotContainer.java (218×)
   favorite verb "update"                runner up: "added"
 </code></pre>
 <!-- TELEMETRY END -->
