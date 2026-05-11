@@ -4,29 +4,29 @@
 <pre><code style="font-family: monospace; font-size: 14px;">
 2026-05-11 · telemetry
 
-  output        777,890 loc             public 55% · private 45%
-  past 7d       +25,535 / -15,043       net +10,492
-  lifetime      +41.4M / -5.8M
+  output        777,917 loc             public 55% · private 45%
+  past 7d       +25,604 / -15,072       net +10,532
+  lifetime      +45.3M / -5.9M
 
   recent focus (90d, by commits touching that language)
-  py      ████████████████████    235
-  java    ███████████████████·    198
-  svelte  ████████████████····     76
-  tsx     ███████████████·····     52
+  py      ████████████████████    243
+  java    ███████████████████·    199
+  svelte  ████████████████····     77
+  tsx     ██████████████······     52
   ts      ██████████████······     44
-  js      █████████████·······     34
+  js      █████████████·······     35
   shell   ██████████··········     13
   sql     ███·················      1
 
-  peak hour     01:00 UTC               62% past sunset (20:00–06:00)
-  cadence       14h 36m avg gap         longest: 76d 20h
-  weekend share 30%                     sat 59% / sun 41%
+  peak hour     01:00 UTC               61% past sunset (20:00–06:00)
+  cadence       13h 40m avg gap         longest: 76d 20h
+  weekend share 30%                     sat 58% / sun 42%
   files/commit  5.4 avg                 p95 17, max 920
   commit streak 3 days                  longest ever: 40
 
-  active repos  8 of 131                118 dormant ≥30d
-  abandoned     30                      inits without follow-through
-  most-touched  frc2023/robot/.../RobotContainer.java (431×)
+  active repos  8 of 133                120 dormant ≥30d
+  abandoned     28                      inits without follow-through
+  most-touched  frc2023/robot/.../RobotContainer.java (435×)
   favorite verb "update"                runner up: "added"
 </code></pre>
 <!-- TELEMETRY END -->
