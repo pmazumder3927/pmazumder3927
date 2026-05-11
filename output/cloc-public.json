@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 5.38830089569092,
-  "n_files"            : 3250,
-  "n_lines"            : 526022,
-  "files_per_second"   : 603.158595430159,
-  "lines_per_second"   : 97622.9817493424},
+  "elapsed_seconds"    : 5.28050088882446,
+  "n_files"            : 3254,
+  "n_lines"            : 527229,
+  "files_per_second"   : 616.22941999436,
+  "lines_per_second"   : 99844.5054929952},
 "Java" :{
   "nFiles": 1552,
   "blank": 28561,
@@ -27,10 +27,10 @@
   "comment": 1314,
   "code": 54867},
 "Python" :{
-  "nFiles": 163,
-  "blank": 4947,
-  "comment": 4392,
-  "code": 21113},
+  "nFiles": 167,
+  "blank": 5139,
+  "comment": 4823,
+  "code": 21691},
 "C#" :{
   "nFiles": 135,
   "blank": 1772,
@@ -60,7 +60,7 @@
   "nFiles": 40,
   "blank": 301,
   "comment": 87,
-  "code": 2427},
+  "code": 2428},
 "Jupyter Notebook" :{
   "nFiles": 12,
   "blank": 0,
@@ -73,9 +73,9 @@
   "code": 1351},
 "Text" :{
   "nFiles": 55,
-  "blank": 174,
+  "blank": 175,
   "comment": 0,
-  "code": 1128},
+  "code": 1132},
 "Bourne Shell" :{
   "nFiles": 11,
   "blank": 272,
@@ -147,7 +147,7 @@
   "comment": 28,
   "code": 14},
 "SUM": {
-  "blank": 48594,
-  "comment": 53367,
-  "code": 424061,
-  "nFiles": 3250} }
+  "blank": 48787,
+  "comment": 53798,
+  "code": 424644,
+  "nFiles": 3254} }

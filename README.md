@@ -4,29 +4,29 @@
 <pre><code style="font-family: monospace; font-size: 14px;">
 2026-05-11 · telemetry
 
-  output        777,920 loc             public 55% · private 45%
-  past 7d       +25,618 / -15,077       net +10,541
+  output        778,503 loc             public 55% · private 45%
+  past 7d       +26,750 / -15,172       net +11,578
   lifetime      +45.3M / -5.9M
 
   recent focus (90d, by commits touching that language)
-  py      ████████████████████    245
-  java    ███████████████████·    198
+  py      ████████████████████    249
   svelte  ████████████████····     77
   tsx     ██████████████······     52
   ts      ██████████████······     44
   js      █████████████·······     35
+  java    ████████████········     28
   shell   ██████████··········     13
   sql     ███·················      1
 
-  peak hour     01:00 UTC               61% past sunset (20:00–06:00)
-  cadence       13h 40m avg gap         longest: 76d 20h
-  weekend share 30%                     sat 58% / sun 42%
-  files/commit  5.4 avg                 p95 17, max 920
-  commit streak 3 days                  longest ever: 40
+  peak hour     01:00 UTC               50% past sunset (20:00–06:00)
+  cadence       1d 12h avg gap          longest: 588d 14h
+  weekend share 27%                     sat 60% / sun 40%
+  files/commit  5.5 avg                 p95 16, max 920
+  commit streak 3 days                  longest ever: 9
 
-  active repos  8 of 133                120 dormant ≥30d
-  abandoned     28                      inits without follow-through
-  most-touched  2023-ChargedUp-AV7/.../RobotContainer.java (218×)
+  active repos  9 of 68                 57 dormant ≥30d
+  abandoned     17                      inits without follow-through
+  most-touched  fearsha-frontend/generated/.../graphql.tsx (68×)
   favorite verb "update"                runner up: "added"
 </code></pre>
 <!-- TELEMETRY END -->
