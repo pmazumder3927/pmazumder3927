@@ -1,23 +1,38 @@
-https://pramit.gg
- <!-- LANGUAGES BREAKDOWN START -->
+[pramit.gg](https://pramit.gg)
+
+<!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-📊 total lines of code: 721,751
-🔓 public: 352,343   🔒 private: 369,408
-🆕 added (past 7d): 35,114   🗑️ removed (past 7d): 8,010   Δ net: 27,104
-📈 lifetime: +47,258,978  /  -11,871,290
+2026-05-11 · telemetry
 
-💛 javascript    ██████████████████·· 203,477
-☕ java          █████████████████··· 173,748
-🌀 typescript    █████████████████··· 118,918
-🐍 python        ███████████████····· 48,565
-🐘 php           █████████████······· 10,099
-🔧 c#            █████████████······· 9,156
-🎯 dart          █████████████······· 6,428
-⚙️ c             █████████··········· 629
-🧩 c++           ████████············ 396
+  output        721,751 loc             public 49% · private 51%
+  past 7d       +35,114 / -8,010        net +27,104
+  lifetime      +47.3M / -11.9M
+
+  js    ██████████████████··    203,477
+  java  ██████████████████··    173,748
+  ts    █████████████████···    118,918
+  py    ████████████████····     48,565
+  php   ██████████████······     10,099
+  cs    ██████████████······      9,156
+  dart  █████████████·······      6,428
+  c     ██████████··········        629
+  cpp   █████████···········        396
+
+  peak hour     —                       — past sunset (20:00–06:00)
+  cadence       —                       longest: —
+  weekend share —                       sat — / sun —
+  files/commit  —                       p95 —, max —
+  commit streak —                       longest ever: —
+
+  active repos  —                       — dormant ≥30d
+  abandoned     —                       inits without follow-through
+  most-touched  —
+  favorite verb —                       runner up: —
 </code></pre>
- <!-- LANGUAGES BREAKDOWN END -->
+<!-- TELEMETRY END -->
 
-raccoon of the day: 
+<!-- RACCOON START -->
+trash panda · seed 25644414929
 
-<img width="64" height="64" alt="image" src="https://github.com/pmazumder3927/pmazumder3927/blob/main/raccoon.png?raw=true" />
+<img width="64" height="64" alt="raccoon" src="https://github.com/pmazumder3927/pmazumder3927/blob/main/raccoon.png?raw=true" />
+<!-- RACCOON END -->

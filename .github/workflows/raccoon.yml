@@ -37,27 +37,46 @@ jobs:
           }
 
       - name: Generate Raccoon Image
+        id: raccoon
         env:
           GITHUB_USERNAME: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MODEL_PATH: ./output_model/raccoon_model.pt
           OUTPUT_PATH: ./raccoon.png
-        run: python generate_raccoon.py
-
-      - name: Update README with raccoon
         run: |
-          # Check if raccoon image marker exists, if not add it
-          if ! grep -q "RACCOON_IMAGE" README.md; then
-            echo "" >> README.md
-            echo "<!-- RACCOON_IMAGE -->" >> README.md
-            echo "![Daily Raccoon](./raccoon.png)" >> README.md
-            echo "<!-- /RACCOON_IMAGE -->" >> README.md
-          fi
+          set -euo pipefail
+          python generate_raccoon.py | tee raccoon.log
+          seed=$(grep -oP 'Generated seed:\s*\K[0-9]+' raccoon.log | tail -1)
+          echo "seed=${seed:-unknown}" >> "$GITHUB_OUTPUT"
+          rm -f raccoon.log
+
+      - name: Update README raccoon block
+        env:
+          SEED: ${{ steps.raccoon.outputs.seed }}
+        run: |
+          python3 - <<'PY'
+          import os, re, pathlib
+          seed = os.environ.get("SEED", "unknown")
+          p = pathlib.Path("README.md")
+          text = p.read_text() if p.exists() else ""
+          block = (
+              "<!-- RACCOON START -->\n"
+              f"trash panda · seed {seed}\n\n"
+              '<img width="64" height="64" alt="raccoon" '
+              'src="https://github.com/pmazumder3927/pmazumder3927/blob/main/raccoon.png?raw=true" />\n'
+              "<!-- RACCOON END -->"
+          )
+          if "<!-- RACCOON START -->" in text and "<!-- RACCOON END -->" in text:
+              text = re.sub(r"<!-- RACCOON START -->.*?<!-- RACCOON END -->", block, text, flags=re.DOTALL)
+          else:
+              text = (text.rstrip() + "\n\n" + block + "\n") if text else block + "\n"
+          p.write_text(text)
+          PY
 
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🦝 Update daily raccoon (seed: ${{ github.run_id }})"
+          commit_message: "trash panda · seed ${{ steps.raccoon.outputs.seed }}"
           file_pattern: |
             raccoon.png
             README.md
