@@ -24,8 +24,7 @@
   files/commit  5.5 avg                 p95 16, max 920
   commit streak 3 days                  longest ever: 9
 
-  active repos  9 of 68                 57 dormant ≥30d
-  abandoned     17                      inits without follow-through
+  active repos  9 of 68
   most-touched  smeecher/server/src/graph/server.py (42×)
   favorite verb "update"                runner up: "added"
 </code></pre>

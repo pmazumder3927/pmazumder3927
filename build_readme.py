@@ -325,35 +325,32 @@ def favorite_verbs(msgs: list[str]) -> list[tuple[str, int]]:
     return words.most_common(3)
 
 
-def repo_status(repos: list[Path], author: str | None) -> tuple[int, int, int, int]:
+def repo_status(repos: list[Path], author: str | None) -> tuple[int, int]:
+    """Return (active_in_last_7d, total_with_any_owner_commit)."""
     now = datetime.now(timezone.utc)
-    active = dormant = abandoned = 0
+    active = 0
     counted = 0
     owner = owner_filter()
     for repo in repos:
         out = git_log(repo, "--format=%cI%x09%an%x09%ae", author=author)
-        dates = []
+        last: datetime | None = None
         for line in out.splitlines():
             parts = line.split("\t", 2)
             if len(parts) < 3 or is_bot(parts[1], parts[2]) or not is_owner(parts[1], parts[2], owner):
                 continue
             d = parse_iso(parts[0])
-            if d is not None:
-                dates.append(d)
-        if not dates:
+            if d is None:
+                continue
+            if d.tzinfo is None:
+                d = d.replace(tzinfo=timezone.utc)
+            if last is None or d > last:
+                last = d
+        if last is None:
             continue
         counted += 1
-        last = max(dates)
-        if last.tzinfo is None:
-            last = last.replace(tzinfo=timezone.utc)
-        delta = now - last
-        if delta.days <= 7:
+        if (now - last).days <= 7:
             active += 1
-        if delta.days >= 30:
-            dormant += 1
-        if len(dates) <= 2 and delta.days >= 30:
-            abandoned += 1
-    return active, counted, dormant, abandoned
+    return active, counted
 
 
 def percentile(values: list[int], pct: float) -> int:
@@ -433,7 +430,7 @@ def build_block() -> str:
     verb_top = f'"{verbs[0][0]}"' if verbs else "—"
     verb_runner = f'"{verbs[1][0]}"' if len(verbs) > 1 else "—"
 
-    active, total_repos, dormant, abandoned = repo_status(repos, author)
+    active, total_repos = repo_status(repos, author)
     if file_touches:
         (repo_name, path), mt_count = file_touches.most_common(1)[0]
         # Strip the branch suffix the clone step appends (e.g. "FRC-2023-main"
@@ -488,8 +485,7 @@ def build_block() -> str:
         row("files/commit", f"{fpc_avg:.1f} avg", f"p95 {fpc_p95}, max {fpc_max}"),
         row("commit streak", streak_label, f"longest ever: {longest_streak}"),
         "",
-        row("active repos", f"{active} of {total_repos}", f"{dormant} dormant ≥30d"),
-        row("abandoned", str(abandoned), "inits without follow-through"),
+        row("active repos", f"{active} of {total_repos}"),
         row("most-touched", f"{mt_label} ({mt_count}×)" if mt_count else "—"),
         row("favorite verb", verb_top, f"runner up: {verb_runner}"),
         "</code></pre>",
