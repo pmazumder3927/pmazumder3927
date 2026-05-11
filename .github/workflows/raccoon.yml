@@ -61,7 +61,7 @@ jobs:
           text = p.read_text() if p.exists() else ""
           block = (
               "<!-- RACCOON START -->\n"
-              f"trash panda · seed {seed}\n\n"
+              f"raccoon of the day · seed {seed}\n\n"
               '<img width="64" height="64" alt="raccoon" '
               'src="https://github.com/pmazumder3927/pmazumder3927/blob/main/raccoon.png?raw=true" />\n'
               "<!-- RACCOON END -->"
@@ -76,7 +76,7 @@ jobs:
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "trash panda · seed ${{ steps.raccoon.outputs.seed }}"
+          commit_message: "raccoon of the day · seed ${{ steps.raccoon.outputs.seed }}"
           file_pattern: |
             raccoon.png
             README.md

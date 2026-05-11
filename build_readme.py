@@ -13,7 +13,7 @@ import os
 import re
 import subprocess
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 REPOS_ROOT = Path("repos")
@@ -22,19 +22,42 @@ README = Path("README.md")
 START = "<!-- TELEMETRY START -->"
 END = "<!-- TELEMETRY END -->"
 
-LANG_LABELS = {
-    "JavaScript": "js",
-    "Java": "java",
-    "TypeScript": "ts",
-    "JSX": "jsx",
-    "Python": "py",
-    "PHP": "php",
-    "C#": "cs",
-    "Dart": "dart",
-    "Go": "go",
-    "Rust": "rs",
-    "C++": "cpp",
-    "C": "c",
+RECENT_DAYS = 90
+RECENT_TOP_N = 8
+
+# Map file extensions (lowercase, with leading dot) to short telemetry labels.
+EXT_TO_LANG: dict[str, str] = {
+    ".py": "py", ".ipynb": "py", ".pyx": "py", ".pyi": "py",
+    ".js": "js", ".mjs": "js", ".cjs": "js",
+    ".jsx": "jsx",
+    ".ts": "ts",
+    ".tsx": "tsx",
+    ".java": "java",
+    ".kt": "kotlin", ".kts": "kotlin",
+    ".swift": "swift",
+    ".rs": "rust",
+    ".go": "go",
+    ".cpp": "cpp", ".cc": "cpp", ".cxx": "cpp", ".hpp": "cpp", ".hxx": "cpp", ".h": "c",
+    ".c": "c",
+    ".cu": "cuda", ".cuh": "cuda",
+    ".cs": "cs",
+    ".php": "php",
+    ".rb": "ruby",
+    ".dart": "dart",
+    ".lua": "lua",
+    ".jl": "julia",
+    ".r": "r", ".rmd": "r",
+    ".m": "matlab",
+    ".scala": "scala",
+    ".clj": "clojure",
+    ".ex": "elixir", ".exs": "elixir",
+    ".erl": "erlang",
+    ".hs": "haskell",
+    ".sh": "shell", ".bash": "shell", ".zsh": "shell",
+    ".sql": "sql",
+    ".tex": "tex",
+    ".vue": "vue", ".svelte": "svelte",
+    ".glsl": "glsl", ".frag": "glsl", ".vert": "glsl", ".wgsl": "wgsl",
 }
 
 EXCLUDE_PATH = re.compile(
@@ -116,12 +139,22 @@ def parse_iso(ts: str) -> datetime | None:
         return None
 
 
+def file_lang(path: str) -> str | None:
+    m = re.search(r"\.([a-zA-Z0-9]+)$", path)
+    if not m:
+        return None
+    return EXT_TO_LANG.get("." + m.group(1).lower())
+
+
 def collect(repos: list[Path], author: str | None):
     """Walk every repo once, collecting commit timestamps, subjects, and numstat."""
     times: list[datetime] = []
     msgs: list[str] = []
     files_per_commit: list[int] = []
     file_touches: Counter[str] = Counter()  # file path -> # commits
+    recent_lang_commits: Counter[str] = Counter()  # lang -> # recent commits touching it
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=RECENT_DAYS)
 
     for repo in repos:
         meta = git_log(repo, "--format=%H%x09%cI%x09%an%x09%ae%x09%s", author=author)
@@ -140,21 +173,36 @@ def collect(repos: list[Path], author: str | None):
             times.append(d.astimezone(timezone.utc))
             msgs.append(subject)
 
-        ns = git_log(repo, "--numstat", "--format=__SHA__%H%x09%an%x09%ae", author=author)
+        ns = git_log(repo, "--numstat", "--format=__SHA__%H%x09%cI%x09%an%x09%ae", author=author)
         per = 0
         seen = False
         skip = False
+        is_recent = False
+        commit_langs: set[str] = set()
+
+        def flush() -> None:
+            if seen and not skip:
+                files_per_commit.append(per)
+                if is_recent and commit_langs:
+                    for lang in commit_langs:
+                        recent_lang_commits[lang] += 1
+
         for line in ns.splitlines():
             if line.startswith("__SHA__"):
-                if seen and not skip:
-                    files_per_commit.append(per)
+                flush()
                 per = 0
+                commit_langs = set()
                 seen = True
                 header = line[len("__SHA__"):]
                 hp = header.split("\t")
-                an = hp[1] if len(hp) > 1 else ""
-                ae = hp[2] if len(hp) > 2 else ""
+                ts = hp[1] if len(hp) > 1 else ""
+                an = hp[2] if len(hp) > 2 else ""
+                ae = hp[3] if len(hp) > 3 else ""
                 skip = is_bot(an, ae)
+                d = parse_iso(ts)
+                if d and d.tzinfo is None:
+                    d = d.replace(tzinfo=timezone.utc)
+                is_recent = bool(d and d >= cutoff)
                 continue
             if skip or not line.strip():
                 continue
@@ -168,10 +216,12 @@ def collect(repos: list[Path], author: str | None):
                 continue
             per += 1
             file_touches[fp] += 1
-        if seen and not skip:
-            files_per_commit.append(per)
+            lang = file_lang(fp)
+            if lang:
+                commit_langs.add(lang)
+        flush()
 
-    return times, msgs, files_per_commit, file_touches
+    return times, msgs, files_per_commit, file_touches, recent_lang_commits
 
 
 def peak_hour(times: list[datetime]) -> tuple[int | None, float]:
@@ -306,15 +356,6 @@ def bar(value: int, ceiling: int, width: int = 20) -> str:
     return "█" * filled + "·" * (width - filled)
 
 
-def lang_total(cloc_pub: dict, cloc_pri: dict, lang: str) -> int:
-    def get(d: dict, key: str) -> int:
-        return d.get(key, {}).get("code", 0) if isinstance(d.get(key), dict) else 0
-    if lang == "Python":
-        return (get(cloc_pub, "Python") + get(cloc_pub, "Jupyter Notebook")
-                + get(cloc_pri, "Python") + get(cloc_pri, "Jupyter Notebook"))
-    return get(cloc_pub, lang) + get(cloc_pri, lang)
-
-
 def build_block() -> str:
     author = os.getenv("AUTHOR_FILTER") or None
 
@@ -338,7 +379,7 @@ def build_block() -> str:
     lt_del = all_pub.get("deletions", 0) + all_pri.get("deletions", 0)
 
     repos = all_repos()
-    times, msgs, fpc, file_touches = collect(repos, author)
+    times, msgs, fpc, file_touches, recent_lang = collect(repos, author)
 
     h, night_ratio = peak_hour(times)
     sat, sun, week = weekend_split(times)
@@ -364,12 +405,9 @@ def build_block() -> str:
     else:
         mt_label, mt_count = "—", 0
 
-    rows: list[tuple[str, int]] = []
-    for lang, label in LANG_LABELS.items():
-        n = lang_total(cloc_pub, cloc_pri, lang)
-        if n > 0:
-            rows.append((label, n))
-    rows.sort(key=lambda x: -x[1])
+    # Recent focus: top languages by # commits in the last RECENT_DAYS days.
+    rows = recent_lang.most_common(RECENT_TOP_N)
+    ceiling = rows[0][1] if rows else 1
     label_w = max((len(l) for l, _ in rows), default=4)
 
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -395,9 +433,13 @@ def build_block() -> str:
             f"net {'+' if week_net >= 0 else ''}{fmt_int(week_net)}"),
         row("lifetime", f"+{fmt_short(lt_add)} / -{fmt_short(lt_del)}"),
         "",
+        f"  recent focus ({RECENT_DAYS}d, by commits touching that language)",
     ]
-    for label, n in rows:
-        lines.append(f"  {label:<{label_w}}  {bar(n, total)}  {fmt_int(n):>9}")
+    if rows:
+        for label, n in rows:
+            lines.append(f"  {label:<{label_w}}  {bar(n, ceiling)}  {n:>5}")
+    else:
+        lines.append("  —")
     lines += [
         "",
         row("peak hour", h_str, f"{night_pct}% past sunset (20:00–06:00)"),
