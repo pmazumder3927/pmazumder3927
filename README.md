@@ -2,7 +2,7 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-05-13 · telemetry
+2026-05-14 · telemetry
 
   output        778,563 loc             public 55% · private 45%
   past 7d       +17,047 / -11,376       net +5,671
@@ -24,7 +24,7 @@
   files/commit  5.5 avg                 p95 16, max 920
   commit streak 0 days                  longest ever: 9
 
-  active repos  9 of 67
+  active repos  8 of 67
   most-touched  smeecher/server/src/graph/server.py (42×)
   favorite verb "update"                runner up: "added"
 </code></pre>
