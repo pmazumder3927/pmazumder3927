@@ -2,7 +2,7 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-05-21 · telemetry
+2026-05-22 · telemetry
 
   output        778,349 loc             public 55% · private 45%
   past 7d       +321 / -549             net -228
