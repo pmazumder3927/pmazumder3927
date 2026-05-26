@@ -2,7 +2,7 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-05-25 · telemetry
+2026-05-26 · telemetry
 
   output        778,286 loc             public 55% · private 45%
   past 7d       +205 / -277             net -72
@@ -14,7 +14,7 @@
   tsx     ███████████████·····     55
   ts      ██████████████······     45
   js      █████████████·······     35
-  java    ███████████·········     23
+  java    ██████████··········     13
   shell   ██████████··········     13
   sql     ███·················      1
 
