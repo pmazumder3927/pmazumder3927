@@ -2,10 +2,10 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-05-28 · telemetry
+2026-05-29 · telemetry
 
   output        778,286 loc             public 55% · private 45%
-  past 7d       +205 / -277             net -72
+  past 7d       +153 / -277             net -124
   lifetime      +45.3M / -5.9M
 
   recent focus (90d, by commits touching that language)
@@ -15,7 +15,7 @@
   ts      ██████████████······     45
   js      █████████████·······     35
   shell   ██████████··········     13
-  java    █████████···········     11
+  java    ███████·············      6
   sql     ███·················      1
 
   peak hour     01:00 UTC               50% past sunset (20:00–06:00)
