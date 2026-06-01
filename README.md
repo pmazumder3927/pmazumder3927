@@ -2,7 +2,7 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-05-31 · telemetry
+2026-06-01 · telemetry
 
   output        778,286 loc             public 55% · private 45%
   past 7d       +0 / -0                 net +0
@@ -15,7 +15,7 @@
   ts      ██████████████······     45
   js      █████████████·······     35
   shell   ██████████··········     13
-  java    ███████·············      6
+  java    ██████··············      5
   sql     ███·················      1
 
   peak hour     01:00 UTC               50% past sunset (20:00–06:00)
