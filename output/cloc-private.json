@@ -1,21 +1,21 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 3.93218803405762,
-  "n_files"            : 2852,
-  "n_lines"            : 601771,
-  "files_per_second"   : 725.295935824571,
-  "lines_per_second"   : 153037.188147647},
+  "elapsed_seconds"    : 4.08448600769043,
+  "n_files"            : 2875,
+  "n_lines"            : 604112,
+  "files_per_second"   : 703.882935230244,
+  "lines_per_second"   : 147904.044440978},
 "Java" :{
   "nFiles": 1133,
   "blank": 21879,
   "comment": 19556,
   "code": 92325},
 "Python" :{
-  "nFiles": 449,
-  "blank": 18566,
-  "comment": 20475,
-  "code": 82261},
+  "nFiles": 465,
+  "blank": 18769,
+  "comment": 20695,
+  "code": 83664},
 "TypeScript" :{
   "nFiles": 627,
   "blank": 6492,
@@ -27,20 +27,20 @@
   "comment": 47,
   "code": 28451},
 "YAML" :{
-  "nFiles": 97,
-  "blank": 3862,
+  "nFiles": 98,
+  "blank": 3870,
   "comment": 364,
-  "code": 19532},
+  "code": 19571},
 "JavaScript" :{
   "nFiles": 148,
   "blank": 1857,
   "comment": 1962,
   "code": 16148},
 "Jupyter Notebook" :{
-  "nFiles": 21,
+  "nFiles": 24,
   "blank": 0,
-  "comment": 139477,
-  "code": 8964},
+  "comment": 139815,
+  "code": 9059},
 "PHP" :{
   "nFiles": 32,
   "blank": 1086,
@@ -66,16 +66,16 @@
   "blank": 105,
   "comment": 0,
   "code": 1628},
+"Bourne Shell" :{
+  "nFiles": 21,
+  "blank": 273,
+  "comment": 769,
+  "code": 1236},
 "TeX" :{
   "nFiles": 1,
   "blank": 213,
   "comment": 1,
   "code": 1215},
-"Bourne Shell" :{
-  "nFiles": 19,
-  "blank": 269,
-  "comment": 764,
-  "code": 1213},
 "DOS Batch" :{
   "nFiles": 11,
   "blank": 245,
@@ -87,10 +87,10 @@
   "comment": 46,
   "code": 809},
 "Text" :{
-  "nFiles": 23,
+  "nFiles": 24,
   "blank": 54,
   "comment": 0,
-  "code": 630},
+  "code": 633},
 "C++" :{
   "nFiles": 8,
   "blank": 105,
@@ -157,7 +157,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 59157,
-  "comment": 188798,
-  "code": 353816,
-  "nFiles": 2852} }
+  "blank": 59372,
+  "comment": 189361,
+  "code": 355379,
+  "nFiles": 2875} }
