@@ -2,7 +2,7 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-06-02 · telemetry
+2026-06-03 · telemetry
 
   output        779,849 loc             public 54% · private 46%
   past 7d       +2,687 / -0             net +2,687
@@ -22,7 +22,7 @@
   cadence       1d 12h avg gap          longest: 588d 14h
   weekend share 27%                     sat 60% / sun 40%
   files/commit  5.5 avg                 p95 16, max 920
-  commit streak 1 day                   longest ever: 9
+  commit streak 0 days                  longest ever: 9
 
   active repos  1 of 68
   most-touched  smeecher/server/src/graph/server.py (42×)
