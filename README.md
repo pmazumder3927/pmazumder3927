@@ -2,24 +2,24 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-06-08 · telemetry
+2026-06-09 · telemetry
 
-  output        807,068 loc             public 53% · private 47%
-  past 7d       +19,256 / -9,191        net +10,065
+  output        809,852 loc             public 53% · private 47%
+  past 7d       +21,224 / -10,498       net +10,726
   lifetime      +45.4M / -5.9M
 
   recent focus (90d, by commits touching that language)
   py      ████████████████████    263
-  tsx     ████████████████····     84
+  tsx     █████████████████···    101
   svelte  ████████████████····     77
-  ts      ███████████████·····     56
+  ts      ███████████████·····     65
   js      █████████████·······     35
   shell   ██████████··········     15
   java    ██··················      1
   sql     ██··················      1
 
   peak hour     01:00 UTC               50% past sunset (20:00–06:00)
-  cadence       1d 12h avg gap          longest: 588d 14h
+  cadence       1d 11h avg gap          longest: 588d 14h
   weekend share 27%                     sat 57% / sun 43%
   files/commit  5.5 avg                 p95 16, max 920
   commit streak 2 days                  longest ever: 9
