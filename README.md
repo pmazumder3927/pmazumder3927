@@ -2,17 +2,17 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-06-09 · telemetry
+2026-06-10 · telemetry
 
-  output        809,852 loc             public 53% · private 47%
-  past 7d       +21,224 / -10,498       net +10,726
+  output        811,164 loc             public 53% · private 47%
+  past 7d       +23,317 / -11,012       net +12,305
   lifetime      +45.4M / -5.9M
 
   recent focus (90d, by commits touching that language)
   py      ████████████████████    263
-  tsx     █████████████████···    101
+  tsx     █████████████████···    107
   svelte  ████████████████····     77
-  ts      ███████████████·····     65
+  ts      ███████████████·····     71
   js      █████████████·······     35
   shell   ██████████··········     15
   java    ██··················      1
@@ -22,9 +22,9 @@
   cadence       1d 11h avg gap          longest: 588d 14h
   weekend share 27%                     sat 57% / sun 43%
   files/commit  5.5 avg                 p95 16, max 920
-  commit streak 2 days                  longest ever: 9
+  commit streak 3 days                  longest ever: 9
 
-  active repos  4 of 70
+  active repos  3 of 70
   most-touched  smeecher/server/src/graph/server.py (42×)
   favorite verb "update"                runner up: "added"
 </code></pre>
