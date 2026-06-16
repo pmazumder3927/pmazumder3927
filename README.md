@@ -2,17 +2,17 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-06-15 · telemetry
+2026-06-16 · telemetry
 
   output        815,610 loc             public 53% · private 47%
-  past 7d       +13,108 / -3,024        net +10,084
+  past 7d       +8,453 / -1,711         net +6,742
   lifetime      +45.4M / -5.9M
 
   recent focus (90d, by commits touching that language)
   py      ████████████████████    263
-  tsx     █████████████████···    104
+  tsx     █████████████████···    100
   svelte  ████████████████····     77
-  ts      ███████████████·····     64
+  ts      ███████████████·····     63
   js      █████████████·······     35
   shell   ██████████··········     15
   sql     ████················      2
