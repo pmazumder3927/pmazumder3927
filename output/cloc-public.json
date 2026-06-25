@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 5.3902440071106,
-  "n_files"            : 3283,
-  "n_lines"            : 535490,
-  "files_per_second"   : 609.063336589067,
-  "lines_per_second"   : 99344.2967133961},
+  "elapsed_seconds"    : 5.44000911712646,
+  "n_files"            : 3307,
+  "n_lines"            : 538497,
+  "files_per_second"   : 607.903392953656,
+  "lines_per_second"   : 98988.2532190399},
 "Java" :{
   "nFiles": 1552,
   "blank": 28561,
@@ -27,10 +27,10 @@
   "comment": 2629,
   "code": 63949},
 "Python" :{
-  "nFiles": 155,
-  "blank": 4921,
-  "comment": 4767,
-  "code": 20677},
+  "nFiles": 167,
+  "blank": 5167,
+  "comment": 4909,
+  "code": 21751},
 "C#" :{
   "nFiles": 135,
   "blank": 1772,
@@ -42,10 +42,10 @@
   "comment": 553,
   "code": 4908},
 "XML" :{
-  "nFiles": 97,
+  "nFiles": 102,
   "blank": 1,
   "comment": 0,
-  "code": 3172},
+  "code": 3392},
 "Gradle" :{
   "nFiles": 60,
   "blank": 651,
@@ -61,31 +61,31 @@
   "blank": 301,
   "comment": 87,
   "code": 2428},
+"Jupyter Notebook" :{
+  "nFiles": 12,
+  "blank": 0,
+  "comment": 4686,
+  "code": 1919},
 "TeX" :{
   "nFiles": 2,
   "blank": 223,
   "comment": 97,
   "code": 1351},
+"Text" :{
+  "nFiles": 55,
+  "blank": 175,
+  "comment": 0,
+  "code": 1132},
 "Bourne Shell" :{
   "nFiles": 11,
   "blank": 272,
   "comment": 665,
   "code": 1090},
-"Jupyter Notebook" :{
-  "nFiles": 9,
-  "blank": 0,
-  "comment": 4508,
-  "code": 1011},
-"Text" :{
-  "nFiles": 54,
-  "blank": 175,
-  "comment": 0,
-  "code": 1004},
 "DOS Batch" :{
-  "nFiles": 15,
-  "blank": 332,
-  "comment": 30,
-  "code": 983},
+  "nFiles": 18,
+  "blank": 358,
+  "comment": 32,
+  "code": 1066},
 "C++" :{
   "nFiles": 4,
   "blank": 217,
@@ -152,7 +152,7 @@
   "comment": 11,
   "code": 11},
 "SUM": {
-  "blank": 49216,
-  "comment": 54888,
-  "code": 431386,
-  "nFiles": 3283} }
+  "blank": 49488,
+  "comment": 55210,
+  "code": 433799,
+  "nFiles": 3307} }
