@@ -1,21 +1,21 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.32973289489746,
-  "n_files"            : 3115,
-  "n_lines"            : 637418,
-  "files_per_second"   : 719.443918508458,
-  "lines_per_second"   : 147218.781267359},
+  "elapsed_seconds"    : 4.53447985649109,
+  "n_files"            : 3248,
+  "n_lines"            : 652990,
+  "files_per_second"   : 716.289431818845,
+  "lines_per_second"   : 144005.491404984},
 "Python" :{
-  "nFiles": 640,
-  "blank": 22604,
-  "comment": 23172,
-  "code": 107892},
+  "nFiles": 674,
+  "blank": 23292,
+  "comment": 24281,
+  "code": 112501},
 "Java" :{
-  "nFiles": 1133,
-  "blank": 21879,
-  "comment": 19556,
-  "code": 92321},
+  "nFiles": 1163,
+  "blank": 22373,
+  "comment": 19647,
+  "code": 95068},
 "TypeScript" :{
   "nFiles": 627,
   "blank": 6492,
@@ -57,15 +57,25 @@
   "comment": 453,
   "code": 4123},
 "Bourne Shell" :{
-  "nFiles": 77,
-  "blank": 638,
-  "comment": 856,
-  "code": 3101},
+  "nFiles": 78,
+  "blank": 645,
+  "comment": 864,
+  "code": 3145},
 "Gradle" :{
   "nFiles": 36,
   "blank": 520,
   "comment": 465,
   "code": 2148},
+"C/C++ Header" :{
+  "nFiles": 41,
+  "blank": 426,
+  "comment": 1158,
+  "code": 2035},
+"C++" :{
+  "nFiles": 24,
+  "blank": 419,
+  "comment": 332,
+  "code": 2021},
 "GraphQL" :{
   "nFiles": 31,
   "blank": 105,
@@ -87,15 +97,10 @@
   "comment": 46,
   "code": 809},
 "Text" :{
-  "nFiles": 27,
+  "nFiles": 28,
   "blank": 54,
   "comment": 0,
-  "code": 641},
-"C++" :{
-  "nFiles": 8,
-  "blank": 105,
-  "comment": 44,
-  "code": 396},
+  "code": 645},
 "CMake" :{
   "nFiles": 7,
   "blank": 76,
@@ -106,11 +111,11 @@
   "blank": 55,
   "comment": 17,
   "code": 321},
-"C/C++ Header" :{
-  "nFiles": 8,
-  "blank": 49,
-  "comment": 63,
-  "code": 103},
+"make" :{
+  "nFiles": 19,
+  "blank": 28,
+  "comment": 33,
+  "code": 133},
 "Dockerfile" :{
   "nFiles": 7,
   "blank": 52,
@@ -141,11 +146,6 @@
   "blank": 4,
   "comment": 0,
   "code": 28},
-"make" :{
-  "nFiles": 1,
-  "blank": 14,
-  "comment": 13,
-  "code": 27},
 "JSON" :{
   "nFiles": 1,
   "blank": 0,
@@ -157,7 +157,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 63616,
-  "comment": 191991,
-  "code": 381811,
-  "nFiles": 3115} }
+  "blank": 65510,
+  "comment": 194602,
+  "code": 392878,
+  "nFiles": 3248} }
