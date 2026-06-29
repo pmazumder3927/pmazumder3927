@@ -1,16 +1,16 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 4.53447985649109,
-  "n_files"            : 3248,
-  "n_lines"            : 652990,
-  "files_per_second"   : 716.289431818845,
-  "lines_per_second"   : 144005.491404984},
+  "elapsed_seconds"    : 4.5011031627655,
+  "n_files"            : 3302,
+  "n_lines"            : 657755,
+  "files_per_second"   : 733.597938237708,
+  "lines_per_second"   : 146131.953926573},
 "Python" :{
-  "nFiles": 674,
-  "blank": 23292,
-  "comment": 24281,
-  "code": 112501},
+  "nFiles": 685,
+  "blank": 23482,
+  "comment": 24498,
+  "code": 113250},
 "Java" :{
   "nFiles": 1163,
   "blank": 22373,
@@ -27,10 +27,10 @@
   "comment": 47,
   "code": 28451},
 "YAML" :{
-  "nFiles": 102,
+  "nFiles": 103,
   "blank": 3906,
-  "comment": 364,
-  "code": 19808},
+  "comment": 366,
+  "code": 19816},
 "JavaScript" :{
   "nFiles": 148,
   "blank": 1857,
@@ -56,26 +56,26 @@
   "blank": 395,
   "comment": 453,
   "code": 4123},
+"C++" :{
+  "nFiles": 44,
+  "blank": 791,
+  "comment": 782,
+  "code": 3814},
 "Bourne Shell" :{
   "nFiles": 78,
   "blank": 645,
   "comment": 864,
   "code": 3145},
+"C/C++ Header" :{
+  "nFiles": 57,
+  "blank": 546,
+  "comment": 1277,
+  "code": 2665},
 "Gradle" :{
   "nFiles": 36,
   "blank": 520,
   "comment": 465,
   "code": 2148},
-"C/C++ Header" :{
-  "nFiles": 41,
-  "blank": 426,
-  "comment": 1158,
-  "code": 2035},
-"C++" :{
-  "nFiles": 24,
-  "blank": 419,
-  "comment": 332,
-  "code": 2021},
 "GraphQL" :{
   "nFiles": 31,
   "blank": 105,
@@ -102,20 +102,20 @@
   "comment": 0,
   "code": 645},
 "CMake" :{
-  "nFiles": 7,
-  "blank": 76,
-  "comment": 106,
-  "code": 327},
+  "nFiles": 9,
+  "blank": 84,
+  "comment": 118,
+  "code": 370},
 "TOML" :{
   "nFiles": 9,
   "blank": 55,
   "comment": 17,
   "code": 321},
 "make" :{
-  "nFiles": 19,
-  "blank": 28,
-  "comment": 33,
-  "code": 133},
+  "nFiles": 23,
+  "blank": 37,
+  "comment": 51,
+  "code": 158},
 "Dockerfile" :{
   "nFiles": 7,
   "blank": 52,
@@ -157,7 +157,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 65510,
-  "comment": 194602,
-  "code": 392878,
-  "nFiles": 3248} }
+  "blank": 66209,
+  "comment": 195420,
+  "code": 396126,
+  "nFiles": 3302} }
