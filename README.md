@@ -2,31 +2,31 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-07-12 · telemetry
+2026-07-13 · telemetry
 
-  output        450,154 loc             public 0% · private 100%
-  past 7d       +95,666 / -25,523       net +70,143
-  lifetime      +20.1M / -4.6M
+  output        888,350 loc             public 49% · private 51%
+  past 7d       +84,967 / -23,072       net +61,895
+  lifetime      +45.6M / -5.9M
 
   recent focus (90d, by commits touching that language)
-  py      ████████████████████    286
-  ts      ██████████████████··    169
-  svelte  ████████████████····     82
-  js      █████████████·······     44
-  shell   ██████████··········     16
-  tsx     ██████··············      5
+  py      ████████████████████    312
+  ts      ███████████████████·    231
+  tsx     ████████████████····    105
+  svelte  ███████████████·····     82
+  js      █████████████·······     45
+  shell   ██████████··········     17
+  sql     ████················      2
   cpp     ████················      2
-  sql     ██··················      1
 
-  peak hour     01:00 UTC               51% past sunset (20:00–06:00)
-  cadence       1d 15h avg gap          longest: 617d 21h
-  weekend share 26%                     sat 69% / sun 31%
-  files/commit  4.8 avg                 p95 17, max 161
-  commit streak 7 days                  longest ever: 9
+  peak hour     01:00 UTC               49% past sunset (20:00–06:00)
+  cadence       1d 8h avg gap           longest: 588d 14h
+  weekend share 26%                     sat 59% / sun 41%
+  files/commit  5.7 avg                 p95 17, max 920
+  commit streak 1 day                   longest ever: 9
 
-  active repos  2 of 33
+  active repos  3 of 72
   most-touched  openaim/src/main.ts (81×)
-  favorite verb "added"                 runner up: "update"
+  favorite verb "update"                runner up: "added"
 </code></pre>
 <!-- TELEMETRY END -->
 
