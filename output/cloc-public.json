@@ -1,31 +1,31 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 5.49331092834473,
-  "n_files"            : 3341,
-  "n_lines"            : 543974,
-  "files_per_second"   : 608.194228140428,
-  "lines_per_second"   : 99024.7970842446},
+  "elapsed_seconds"    : 5.49802803993225,
+  "n_files"            : 3354,
+  "n_lines"            : 545801,
+  "files_per_second"   : 610.036903347865,
+  "lines_per_second"   : 99272.1383077424},
 "Java" :{
   "nFiles": 1559,
   "blank": 28609,
   "comment": 36578,
   "code": 134972},
 "JavaScript" :{
-  "nFiles": 77,
+  "nFiles": 78,
   "blank": 4003,
-  "comment": 3235,
-  "code": 98558},
+  "comment": 3244,
+  "code": 98581},
 "Unity-Prefab" :{
   "nFiles": 525,
   "blank": 0,
   "comment": 0,
   "code": 79105},
 "TypeScript" :{
-  "nFiles": 407,
-  "blank": 6386,
-  "comment": 2871,
-  "code": 68186},
+  "nFiles": 419,
+  "blank": 6480,
+  "comment": 3257,
+  "code": 69501},
 "Python" :{
   "nFiles": 167,
   "blank": 5167,
@@ -152,7 +152,7 @@
   "comment": 11,
   "code": 11},
 "SUM": {
-  "blank": 49895,
-  "comment": 55570,
-  "code": 438509,
-  "nFiles": 3341} }
+  "blank": 49989,
+  "comment": 55965,
+  "code": 439847,
+  "nFiles": 3354} }
