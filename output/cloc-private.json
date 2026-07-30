@@ -1,16 +1,16 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 5.0193498134613,
-  "n_files"            : 3815,
-  "n_lines"            : 764078,
-  "files_per_second"   : 760.058601568,
-  "lines_per_second"   : 152226.489166153},
+  "elapsed_seconds"    : 4.91797590255737,
+  "n_files"            : 3865,
+  "n_lines"            : 777336,
+  "files_per_second"   : 785.892423342331,
+  "lines_per_second"   : 158060.148199543},
 "TypeScript" :{
-  "nFiles": 987,
-  "blank": 11939,
-  "comment": 18671,
-  "code": 138460},
+  "nFiles": 1005,
+  "blank": 12377,
+  "comment": 19292,
+  "code": 143765},
 "Python" :{
   "nFiles": 770,
   "blank": 25650,
@@ -18,24 +18,24 @@
   "code": 123761},
 "Java" :{
   "nFiles": 1174,
-  "blank": 22521,
+  "blank": 22524,
   "comment": 19686,
-  "code": 95770},
+  "code": 95786},
 "Svelte" :{
   "nFiles": 75,
   "blank": 3708,
   "comment": 54,
   "code": 35999},
 "YAML" :{
-  "nFiles": 110,
-  "blank": 3916,
+  "nFiles": 113,
+  "blank": 4095,
   "comment": 391,
-  "code": 19938},
+  "code": 20609},
 "JavaScript" :{
-  "nFiles": 165,
-  "blank": 1992,
-  "comment": 2180,
-  "code": 17275},
+  "nFiles": 177,
+  "blank": 2128,
+  "comment": 2398,
+  "code": 18542},
 "Jupyter Notebook" :{
   "nFiles": 25,
   "blank": 0,
@@ -61,11 +61,16 @@
   "blank": 791,
   "comment": 782,
   "code": 3814},
+"Rust" :{
+  "nFiles": 10,
+  "blank": 308,
+  "comment": 505,
+  "code": 3508},
 "Bourne Shell" :{
-  "nFiles": 78,
-  "blank": 645,
-  "comment": 864,
-  "code": 3145},
+  "nFiles": 79,
+  "blank": 650,
+  "comment": 870,
+  "code": 3168},
 "C/C++ Header" :{
   "nFiles": 57,
   "blank": 546,
@@ -97,20 +102,20 @@
   "comment": 46,
   "code": 809},
 "Text" :{
-  "nFiles": 28,
+  "nFiles": 30,
   "blank": 54,
   "comment": 0,
-  "code": 645},
+  "code": 647},
+"TOML" :{
+  "nFiles": 15,
+  "blank": 68,
+  "comment": 25,
+  "code": 379},
 "CMake" :{
   "nFiles": 9,
   "blank": 84,
   "comment": 118,
   "code": 370},
-"TOML" :{
-  "nFiles": 11,
-  "blank": 60,
-  "comment": 18,
-  "code": 347},
 "make" :{
   "nFiles": 23,
   "blank": 37,
@@ -157,7 +162,7 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 75019,
-  "comment": 212601,
-  "code": 476458,
-  "nFiles": 3815} }
+  "blank": 76096,
+  "comment": 213958,
+  "code": 487282,
+  "nFiles": 3865} }

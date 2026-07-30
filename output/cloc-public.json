@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 5.61229610443115,
+  "elapsed_seconds"    : 5.47156596183777,
   "n_files"            : 3354,
   "n_lines"            : 545899,
-  "files_per_second"   : 597.616365492881,
-  "lines_per_second"   : 97268.3888807985},
+  "files_per_second"   : 612.987218539073,
+  "lines_per_second"   : 99770.1579049676},
 "Java" :{
   "nFiles": 1559,
   "blank": 28609,
