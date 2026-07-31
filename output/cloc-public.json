@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "1.98",
-  "elapsed_seconds"    : 5.47156596183777,
-  "n_files"            : 3354,
-  "n_lines"            : 545899,
-  "files_per_second"   : 612.987218539073,
-  "lines_per_second"   : 99770.1579049676},
+  "elapsed_seconds"    : 5.5010039806366,
+  "n_files"            : 3397,
+  "n_lines"            : 578429,
+  "files_per_second"   : 617.523639676932,
+  "lines_per_second"   : 105149.714858607},
 "Java" :{
   "nFiles": 1559,
   "blank": 28609,
@@ -16,21 +16,21 @@
   "blank": 4003,
   "comment": 3244,
   "code": 98581},
+"TypeScript" :{
+  "nFiles": 458,
+  "blank": 8083,
+  "comment": 9945,
+  "code": 88247},
 "Unity-Prefab" :{
   "nFiles": 525,
   "blank": 0,
   "comment": 0,
   "code": 79105},
-"TypeScript" :{
-  "nFiles": 419,
-  "blank": 6485,
-  "comment": 3292,
-  "code": 69559},
 "Python" :{
-  "nFiles": 167,
-  "blank": 5167,
-  "comment": 4909,
-  "code": 21751},
+  "nFiles": 170,
+  "blank": 5679,
+  "comment": 6548,
+  "code": 24036},
 "C#" :{
   "nFiles": 135,
   "blank": 1772,
@@ -46,6 +46,11 @@
   "blank": 1,
   "comment": 0,
   "code": 3392},
+"YAML" :{
+  "nFiles": 41,
+  "blank": 536,
+  "comment": 87,
+  "code": 3348},
 "Gradle" :{
   "nFiles": 61,
   "blank": 671,
@@ -56,11 +61,6 @@
   "blank": 321,
   "comment": 67,
   "code": 2660},
-"YAML" :{
-  "nFiles": 40,
-  "blank": 301,
-  "comment": 87,
-  "code": 2428},
 "Jupyter Notebook" :{
   "nFiles": 12,
   "blank": 0,
@@ -152,7 +152,7 @@
   "comment": 11,
   "code": 11},
 "SUM": {
-  "blank": 49994,
-  "comment": 56000,
-  "code": 439905,
-  "nFiles": 3354} }
+  "blank": 52339,
+  "comment": 64292,
+  "code": 461798,
+  "nFiles": 3397} }
