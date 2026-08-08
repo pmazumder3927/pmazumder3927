@@ -2,20 +2,20 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-08-07 · telemetry
+2026-08-08 · telemetry
 
-  output        951,989 loc             public 49% · private 51%
-  past 7d       +5,923 / -875           net +5,048
+  output        952,412 loc             public 49% · private 51%
+  past 7d       +1,186 / -1,116         net +70
   lifetime      +45.7M / -6.0M
 
   recent focus (90d, by commits touching that language)
   ts      ████████████████████    397
-  py      ████████████████····    127
   tsx     ████████████████····    116
-  js      ███████████·········     27
-  svelte  █████████···········     14
+  py      ████████████████····    113
+  js      ███████████·········     25
   shell   ███████·············      6
   rust    ███████·············      6
+  svelte  ███████·············      6
   cpp     ████················      2
 
   peak hour     01:00 UTC               49% past sunset (20:00–06:00)
