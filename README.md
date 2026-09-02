@@ -2,16 +2,16 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-09-01 · telemetry
+2026-09-02 · telemetry
 
-  output        962,707 loc             public 48% · private 52%
-  past 7d       +5,781 / -889           net +4,892
+  output        963,152 loc             public 48% · private 52%
+  past 7d       +5,637 / -726           net +4,911
   lifetime      +45.7M / -6.0M
 
   recent focus (90d, by commits touching that language)
   ts      ████████████████████    420
   tsx     ████████████████····    125
-  py      ████████████████····    114
+  py      ████████████████····    110
   js      ████████████········     33
   svelte  ████████············     12
   shell   ███████·············      7
@@ -22,7 +22,7 @@
   cadence       1d 5h avg gap           longest: 588d 14h
   weekend share 27%                     sat 55% / sun 45%
   files/commit  5.8 avg                 p95 17, max 920
-  commit streak 2 days                  longest ever: 9
+  commit streak 0 days                  longest ever: 9
 
   active repos  1 of 75
   most-touched  openaim/src/main.ts (106×)
