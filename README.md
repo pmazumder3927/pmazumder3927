@@ -2,9 +2,9 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-10-17 · telemetry
+2026-10-18 · telemetry
 
-  output        463,859 loc             public 100% · private 0%
+  output        463,853 loc             public 100% · private 0%
   past 7d       +727 / -1,210           net -483
   lifetime      +25.5M / -1.4M
 
