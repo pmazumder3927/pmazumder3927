@@ -2,10 +2,10 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-10-21 · telemetry
+2026-10-22 · telemetry
 
-  output        464,232 loc             public 100% · private 0%
-  past 7d       +160 / -152             net +8
+  output        464,384 loc             public 100% · private 0%
+  past 7d       +172 / -104             net +68
   lifetime      +25.5M / -1.4M
 
   recent focus (90d, by commits touching that language)
