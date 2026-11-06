@@ -2,27 +2,30 @@
 
 <!-- TELEMETRY START -->
 <pre><code style="font-family: monospace; font-size: 14px;">
-2026-11-05 · telemetry
+2026-11-06 · telemetry
 
-  output        469,276 loc             public 100% · private 0%
-  past 7d       +1,165 / -837           net +328
-  lifetime      +25.5M / -1.4M
+  output        1,015,926 loc           public 46% · private 54%
+  past 7d       +1,098 / -533           net +565
+  lifetime      +45.8M / -6.0M
 
   recent focus (90d, by commits touching that language)
-  ts   ████████████████████     18
-  tsx  █████████████████···     11
-  sql  █████████···········      3
-  js   █████████···········      3
+  py      ████████████████████     96
+  svelte  ██████████████████··     55
+  js      ████████████████····     40
+  ts      ████████████████····     38
+  tsx     ████████████········     13
+  shell   ███████████·········     11
+  sql     ██████··············      3
 
-  peak hour     01:00 UTC               46% past sunset (20:00–06:00)
-  cadence       4d 1h avg gap           longest: 588d 14h
-  weekend share 25%                     sat 33% / sun 67%
-  files/commit  7.2 avg                 p95 16, max 920
-  commit streak 0 days                  longest ever: 7
+  peak hour     01:00 UTC               49% past sunset (20:00–06:00)
+  cadence       1d 4h avg gap           longest: 588d 14h
+  weekend share 27%                     sat 57% / sun 43%
+  files/commit  6.0 avg                 p95 19, max 920
+  commit streak 0 days                  longest ever: 9
 
-  active repos  0 of 40
-  most-touched  pramit.gg/app/post/[id]/PostContent.tsx (34×)
-  favorite verb "update"                runner up: "add"
+  active repos  0 of 75
+  most-touched  openaim/src/main.ts (108×)
+  favorite verb "update"                runner up: "feat"
 </code></pre>
 <!-- TELEMETRY END -->
 
