@@ -1,11 +1,11 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "2.06",
-  "elapsed_seconds"    : 6.27430200576782,
+  "elapsed_seconds"    : 4.01067996025085,
   "n_files"            : 4013,
   "n_lines"            : 844803,
-  "files_per_second"   : 639.593056934611,
-  "lines_per_second"   : 134644.937273244},
+  "files_per_second"   : 1000.57846544031,
+  "lines_per_second"   : 210638.347704802},
 "Python" :{
   "nFiles": 863,
   "blank": 30243,
@@ -14,8 +14,8 @@
 "TypeScript" :{
   "nFiles": 1031,
   "blank": 12687,
-  "comment": 20355,
-  "code": 148074},
+  "comment": 19916,
+  "code": 148513},
 "Java" :{
   "nFiles": 1117,
   "blank": 21447,
@@ -163,12 +163,6 @@
   "code": 4},
 "SUM": {
   "blank": 81858,
-  "comment": 219856,
-  "code": 543089,
+  "comment": 219417,
+  "code": 543528,
   "nFiles": 4013} }
-
-One or more files took longer to process than expected.
-Try rerunning without timeout guards by adding  --timeout 0
-to your command line arguments.  See the documentation on
-the --timeout switch for more information.
-
