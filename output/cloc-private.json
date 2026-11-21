@@ -1,26 +1,26 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "2.06",
-  "elapsed_seconds"    : 5.16948485374451,
-  "n_files"            : 4029,
-  "n_lines"            : 848574,
-  "files_per_second"   : 779.38133372837,
-  "lines_per_second"   : 164150.59217851},
+  "elapsed_seconds"    : 6.5644268989563,
+  "n_files"            : 4037,
+  "n_lines"            : 850883,
+  "files_per_second"   : 614.981332283837,
+  "lines_per_second"   : 129620.30244183},
 "Python" :{
   "nFiles": 865,
   "blank": 30360,
-  "comment": 30586,
-  "code": 159579},
+  "comment": 30587,
+  "code": 159581},
 "TypeScript" :{
   "nFiles": 1031,
   "blank": 12687,
-  "comment": 19916,
-  "code": 148513},
+  "comment": 20355,
+  "code": 148074},
 "Java" :{
-  "nFiles": 1128,
-  "blank": 21721,
-  "comment": 19761,
-  "code": 92727},
+  "nFiles": 1136,
+  "blank": 21968,
+  "comment": 20223,
+  "code": 94324},
 "Svelte" :{
   "nFiles": 106,
   "blank": 4809,
@@ -162,7 +162,13 @@
   "comment": 0,
   "code": 4},
 "SUM": {
-  "blank": 82269,
-  "comment": 220021,
-  "code": 546284,
-  "nFiles": 4029} }
+  "blank": 82516,
+  "comment": 220923,
+  "code": 547444,
+  "nFiles": 4037} }
+
+One or more files took longer to process than expected.
+Try rerunning without timeout guards by adding  --timeout 0
+to your command line arguments.  See the documentation on
+the --timeout switch for more information.
+
