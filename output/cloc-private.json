@@ -1,41 +1,41 @@
 {"header" : {
   "cloc_url"           : "github.com/AlDanial/cloc",
   "cloc_version"       : "2.06",
-  "elapsed_seconds"    : 4.4788281917572,
-  "n_files"            : 4046,
-  "n_lines"            : 853647,
-  "files_per_second"   : 903.36128709876,
-  "lines_per_second"   : 190596.058489371},
-"Python" :{
-  "nFiles": 865,
-  "blank": 30360,
-  "comment": 30587,
-  "code": 159581},
+  "elapsed_seconds"    : 8.42985200881958,
+  "n_files"            : 4177,
+  "n_lines"            : 884402,
+  "files_per_second"   : 495.500988111047,
+  "lines_per_second"   : 104913.11105755},
 "TypeScript" :{
-  "nFiles": 1031,
-  "blank": 12688,
-  "comment": 19931,
-  "code": 148556},
+  "nFiles": 1141,
+  "blank": 13658,
+  "comment": 21072,
+  "code": 167069},
+"Python" :{
+  "nFiles": 858,
+  "blank": 30751,
+  "comment": 31901,
+  "code": 162967},
 "Java" :{
-  "nFiles": 1145,
-  "blank": 22206,
-  "comment": 21155,
-  "code": 95833},
+  "nFiles": 1154,
+  "blank": 22372,
+  "comment": 21791,
+  "code": 97001},
 "Svelte" :{
   "nFiles": 106,
   "blank": 4809,
   "comment": 1020,
   "code": 48812},
 "JavaScript" :{
-  "nFiles": 225,
-  "blank": 2925,
-  "comment": 2857,
-  "code": 26574},
+  "nFiles": 232,
+  "blank": 3036,
+  "comment": 3116,
+  "code": 28228},
 "YAML" :{
-  "nFiles": 117,
-  "blank": 4124,
-  "comment": 448,
-  "code": 20965},
+  "nFiles": 118,
+  "blank": 4132,
+  "comment": 475,
+  "code": 21035},
 "Jupyter Notebook" :{
   "nFiles": 25,
   "blank": 0,
@@ -56,6 +56,11 @@
   "blank": 395,
   "comment": 453,
   "code": 4123},
+"Bourne Shell" :{
+  "nFiles": 86,
+  "blank": 733,
+  "comment": 990,
+  "code": 4011},
 "C++" :{
   "nFiles": 44,
   "blank": 791,
@@ -66,11 +71,6 @@
   "blank": 308,
   "comment": 505,
   "code": 3508},
-"Bourne Shell" :{
-  "nFiles": 83,
-  "blank": 684,
-  "comment": 889,
-  "code": 3441},
 "C/C++ Header" :{
   "nFiles": 57,
   "blank": 546,
@@ -78,9 +78,9 @@
   "code": 2665},
 "Gradle" :{
   "nFiles": 36,
-  "blank": 520,
-  "comment": 467,
-  "code": 2149},
+  "blank": 524,
+  "comment": 502,
+  "code": 2217},
 "GraphQL" :{
   "nFiles": 31,
   "blank": 105,
@@ -102,15 +102,15 @@
   "comment": 46,
   "code": 809},
 "Text" :{
-  "nFiles": 30,
-  "blank": 53,
+  "nFiles": 38,
+  "blank": 54,
   "comment": 0,
-  "code": 648},
+  "code": 730},
 "TOML" :{
-  "nFiles": 15,
-  "blank": 68,
+  "nFiles": 14,
+  "blank": 64,
   "comment": 25,
-  "code": 381},
+  "code": 371},
 "CMake" :{
   "nFiles": 9,
   "blank": 84,
@@ -161,8 +161,19 @@
   "blank": 2,
   "comment": 0,
   "code": 4},
+"Snakemake" :{
+  "nFiles": 1,
+  "blank": 0,
+  "comment": 45,
+  "code": 0},
 "SUM": {
-  "blank": 82755,
-  "comment": 221438,
-  "code": 549454,
-  "nFiles": 4046} }
+  "blank": 84451,
+  "comment": 224996,
+  "code": 574955,
+  "nFiles": 4177} }
+
+One or more files took longer to process than expected.
+Try rerunning without timeout guards by adding  --timeout 0
+to your command line arguments.  See the documentation on
+the --timeout switch for more information.
+
